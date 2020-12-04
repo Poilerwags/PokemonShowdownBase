@@ -8,6 +8,9 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	ivysaur: {
 		name: "Ivysaur",
 	},
+	ivysaurdelta: {
+		name: "Ivysaur",
+	},
 	venusaur: {
 		name: "Venusaur",
 	},
@@ -16,6 +19,12 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	},
 	venusaurgmax: {
 		name: "Venusaur-Gmax",
+	},
+	venusaurdelta: {
+		name: "Venusaur-Delta",
+	},
+	venusaurdeltamega: {
+		name: "Venusaur-Delta-Mega",
 	},
 	charmander: {
 		name: "Charmander",
