@@ -531,6 +531,11 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Honey Gather",
 		shortDesc: "No competitive use.",
 	},
+	hubris: {
+		name: "Hubris",
+		desc: "This Pokemon's Special Attack is raised by 1 stage if it attacks and knocks out another Pokemon.",
+		shortDesc: "This Pokemon's Special Attack is raised by 1 stage if it attacks and KOes another Pokemon.",
+	},
 	hugepower: {
 		name: "Huge Power",
 		shortDesc: "This Pokemon's Attack is doubled.",

@@ -1405,6 +1405,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 118,
 	},
+	hubris: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source);
+			}
+		},
+		name: "Hubris",
+		rating: 3.5,
+		num: 244,
+	},
 	hugepower: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
