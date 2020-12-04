@@ -2,6 +2,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	bulbasaur: {
 		tier: "LC",
 	},
+	bulbasaurdelta: {
+		tier: "LC",
+	},
 	ivysaur: {
 		tier: "NFE",
 	},

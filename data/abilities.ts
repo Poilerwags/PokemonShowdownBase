@@ -2789,6 +2789,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 227,
 	},
+	psychocall: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Psycho Call boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Psycho Call boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Psycho Call",
+		rating: 2,
+		num: 249,
+	},
 	punkrock: {
 		onBasePowerPriority: 7,
 		onBasePower(basePower, attacker, defender, move) {

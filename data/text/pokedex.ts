@@ -2,6 +2,9 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	bulbasaur: {
 		name: "Bulbasaur",
 	},
+	bulbasaurdelta: {
+		name: "Bulbasaur-Delta",
+	},
 	ivysaur: {
 		name: "Ivysaur",
 	},
