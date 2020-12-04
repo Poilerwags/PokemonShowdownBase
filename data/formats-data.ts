@@ -8,11 +8,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	ivysaur: {
 		tier: "NFE",
 	},
+	ivysaurdelta: {
+		tier: "NFE",
+	},
 	venusaur: {
 		randomBattleMoves: ["gigadrain", "leechseed", "sleeppowder", "sludgebomb", "substitute"],
 		randomBattleLevel: 82,
 		tier: "RU",
 		doublesTier: "(DUU)",
+	},
+	venusaurdelta: {
+		tier: "RU",
 	},
 	venusaurmega: {
 		isNonstandard: "Past",
@@ -24,6 +30,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
 		doublesTier: "(DUber)",
+	},
+	venusaurdeltamega: {
+		tier: "OU",
 	},
 	charmander: {
 		tier: "LC",
