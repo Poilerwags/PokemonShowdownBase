@@ -440,7 +440,7 @@ export class TeamValidator {
 		if (!species.exists) {
 			return [`The Pokemon "${set.species}" does not exist.`];
 		}
-    
+
 		if (item.id && !item.exists) {
 			return [`"${set.item}" is an invalid item.`];
 		}
