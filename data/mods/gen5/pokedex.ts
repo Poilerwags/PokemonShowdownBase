@@ -281,9 +281,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Psychic"],
 	},
+	whismur: {
+		inherit: true,
+		baseStats: {hp: 104, atk: 91, def: 63, spa: 91, spd: 63, spe: 68},
+		abilities: {0: "Soundproof", H: "Rattled"},
+	},
+	loudred: {
+		inherit: true,
+		baseStats: {hp: 104, atk: 91, def: 63, spa: 91, spd: 63, spe: 68},
+		abilities: {0: "Soundproof", H: "Scrappy"},
+	},
 	exploud: {
 		inherit: true,
 		baseStats: {hp: 104, atk: 91, def: 63, spa: 91, spd: 63, spe: 68},
+		abilities: {0: "Soundproof", H: "Scrappy"},
 	},
 	azurill: {
 		inherit: true,
@@ -300,6 +311,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	minun: {
 		inherit: true,
 		abilities: {0: "Minus"},
+	},
+	lunatone: {
+		inherit: true,
+		abilities: {0: "Levitate"},
+	},
+	solrock: {
+		inherit: true,
+		abilities: {0: "Levitate"},
 	},
 	kecleon: {
 		inherit: true,
@@ -381,6 +400,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Psychic"],
 	},
+	spiritomb: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Infiltrator"},
+	},
 	togekiss: {
 		inherit: true,
 		types: ["Normal", "Flying"],
@@ -392,6 +415,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	heatran: {
 		inherit: true,
 		abilities: {0: "Flash Fire"},
+	},
+	darkrai: {
+		inherit: true,
+		abilities: {0: "Bad Dreams"},
 	},
 	snivy: {
 		inherit: true,

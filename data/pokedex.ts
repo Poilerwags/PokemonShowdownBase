@@ -3483,8 +3483,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 6.5,
 		color: "Brown",
 		eggGroups: ["Field"],
-		otherFormes: ["Eevee-Mega"],
-		formeOrder: ["Eevee-Pre-Mega", "Eevee-Mega"],
+		otherFormes: [
+			"Eevee-Mega", "Eevee-Mega-V", "Eevee-Mega-J", "Eevee-Mega-F", "Eevee-Mega-E", "Eevee-Mega-U", "Eevee-Mega-L", "Eevee-Mega-G", "Eevee-Mega-S"
+		],
+		formeOrder: [
+			"Eevee-Pre-Mega", "Eevee-Mega", "Eevee-Mega-V", "Eevee-Mega-J", "Eevee-Mega-F", "Eevee-Mega-E", "Eevee-Mega-U", "Eevee-Mega-L", "Eevee-Mega-G", "Eevee-Mega-S"
+		],
 	},
 	eeveemega: {
 		num: 133,
