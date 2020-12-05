@@ -3484,7 +3484,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field"],
 		otherFormes: ["Eevee-Mega"],
-		formeOrder: ["Eevee", "Eevee-Mega"],
+		formeOrder: ["Eevee-Pre-Mega", "Eevee-Mega"],
 	},
 	eeveemega: {
 		num: 133,
