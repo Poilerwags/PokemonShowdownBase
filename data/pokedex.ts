@@ -9017,8 +9017,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
-		otherFormes: ["Metagross-Delta-R-Mega"],
-		formeOrder: ["Metagross-Delta-R", "Metagross-Delta-R-Mega"],
+		otherFormes: ["Metagross-Delta-R-Mega", "Metagross-Delta-R-Crystal"],
+		formeOrder: ["Metagross-Delta-R", "Metagross-Delta-R-Mega", "Metagross-Delta-R-Crystal"],
 	},
 	metagrossmega: {
 		num: 376,
