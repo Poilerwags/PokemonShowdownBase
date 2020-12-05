@@ -19,6 +19,55 @@ The column value will be ignored for repeat sections.
 
 export const Formats: FormatList = [
 
+	// Custom
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "APL Format",
+	},
+	{
+		name: "[Gen 8] National Dex Delta Draft League",
+		mod: 'gen8',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'Assist', 'Barrage', 'Barrier', 'Bestow', 'Bide', 'Bone Club', 'Bubble', 'Camouflage', 'Captivate', 'Chip Away',
+			'Clamp', 'Comet Punch', 'Constrict', 'Dizzy Punch', 'Double Slap', 'Dragon Rage', 'Egg Bomb', 'Embargo', 'Feint Attack',
+			'Flame Burst', 'Flash', 'Foresight', 'Frustration', 'Grass Whistle', 'Heal Block', 'Heal Order', 'Heart Stamp', 'Hidden Power',
+			'Ice Ball', 'Ion Deluge', 'Jump Kick', 'Karate Chop', 'Kinesis', 'Lucky Chant', 'Magnet Bomb', 'Magnitude', 'Me First',
+			'Meditate', 'Miracle Eye', 'Mirror Move', 'Mirror Shot', 'Mud Bomb', 'Mud Sport', 'Natural Gift', 'Needle Arm', 'Nightmare',
+			'Odor Sleuth', 'Ominous Wind', 'Psywave', 'Punishment', 'Pursuit', 'Rage', 'Razor Wind', 'Refresh', 'Rock Climb', 'Rolling Kick',
+			'Rototiller', 'Secret Power', 'Sharpen', 'Signal Beam', 'Silver Wind', 'Sky Drop', 'Sky Uppercut', 'Smelling Salts', 'Snatch',
+			'Sonic Boom', 'Spider Web', 'Spike Cannon', 'Spotlight', 'Steamroller', 'Synchronoise', 'Telekinesis', 'Trump Card', 'Twineedle',
+			'Wake-Up Slap', 'Water Sport', 'Wring Out', 'Return', 'Permafrost', 'Livewire', 'Achilles Heel', 'Tail Glow',
+			'Normalium Z', 'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z',
+			'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
+			'Aloraichium Z', 'Decidium Z', 'Eevium Z', 'Incinium Z', 'Kommonium Z', 'Lunalium Z', 'Lycanium Z', 'Marshadium Z', 'Mewnium Z',
+			'Mimikium Z', 'Pikanium Z', 'Pikashunium Z', 'Primarium Z', 'Snorlium Z', 'Solganium Z', 'Tapunium Z', 'Ultranecrozium Z',
+		],
+	},
+	{
+		name: "[Gen 8] LC National Dex Delta Draft League",
+		mod: 'gen8',
+		maxLevel: 5,
+		ruleset: ['Little Cup', 'Standard NatDex', 'Dynamax Clause'],
+		banlist: [
+			'Misdreavus', 'Gligar', 'Scyther', 'Corsola-Galar', 'Swirlix',
+			'Assist', 'Barrage', 'Barrier', 'Bestow', 'Bide', 'Bone Club', 'Bubble', 'Camouflage', 'Captivate', 'Chip Away',
+			'Clamp', 'Comet Punch', 'Constrict', 'Dizzy Punch', 'Double Slap', 'Dragon Rage', 'Egg Bomb', 'Embargo', 'Feint Attack',
+			'Flame Burst', 'Flash', 'Foresight', 'Frustration', 'Grass Whistle', 'Heal Block', 'Heal Order', 'Heart Stamp', 'Hidden Power',
+			'Ice Ball', 'Ion Deluge', 'Jump Kick', 'Karate Chop', 'Kinesis', 'Lucky Chant', 'Magnet Bomb', 'Magnitude', 'Me First',
+			'Meditate', 'Miracle Eye', 'Mirror Move', 'Mirror Shot', 'Mud Bomb', 'Mud Sport', 'Natural Gift', 'Needle Arm', 'Nightmare',
+			'Odor Sleuth', 'Ominous Wind', 'Psywave', 'Punishment', 'Pursuit', 'Rage', 'Razor Wind', 'Refresh', 'Rock Climb', 'Rolling Kick',
+			'Rototiller', 'Secret Power', 'Sharpen', 'Signal Beam', 'Silver Wind', 'Sky Drop', 'Sky Uppercut', 'Smelling Salts', 'Snatch',
+			'Sonic Boom', 'Spider Web', 'Spike Cannon', 'Spotlight', 'Steamroller', 'Synchronoise', 'Telekinesis', 'Trump Card', 'Twineedle',
+			'Wake-Up Slap', 'Water Sport', 'Wring Out', 'Return', 'Permafrost', 'Livewire', 'Achilles Heel', 'Tail Glow',
+			'Normalium Z', 'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z',
+			'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
+			'Aloraichium Z', 'Decidium Z', 'Eevium Z', 'Incinium Z', 'Kommonium Z', 'Lunalium Z', 'Lycanium Z', 'Marshadium Z', 'Mewnium Z',
+			'Mimikium Z', 'Pikanium Z', 'Pikashunium Z', 'Primarium Z', 'Snorlium Z', 'Solganium Z', 'Tapunium Z', 'Ultranecrozium Z',
+		],
+	},
+
 	// Sw/Sh Singles
 	///////////////////////////////////////////////////////////////////
 

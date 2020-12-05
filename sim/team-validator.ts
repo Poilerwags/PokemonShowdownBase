@@ -430,6 +430,9 @@ export class TeamValidator {
 		if (ability.id === 'owntempo' && species.id === 'rockruff') {
 			tierSpecies = outOfBattleSpecies = dex.getSpecies('rockruffdusk');
 		}
+		if (item.id !== 'steelixitefire' && species.id === 'steelix' && set.moves.includes('stealthcoal')) {
+			return ['You cant use Stealth Coal without Foundry'];
+		}
 		if (species.id === 'melmetal' && set.gigantamax) {
 			setSources.sourcesBefore = 0;
 			setSources.sources = ['8S0 melmetal'];
@@ -437,7 +440,7 @@ export class TeamValidator {
 		if (!species.exists) {
 			return [`The Pokemon "${set.species}" does not exist.`];
 		}
-
+    
 		if (item.id && !item.exists) {
 			return [`"${set.item}" is an invalid item.`];
 		}
@@ -479,6 +482,12 @@ export class TeamValidator {
 				tierSpecies = dex.getSpecies('Groudon-Primal');
 			} else if (item.id === 'blueorb' && species.id === 'kyogre') {
 				tierSpecies = dex.getSpecies('Kyogre-Primal');
+			} else if (item.id === 'crystalpiecearceus' && species.id === 'arceus') {
+				tierSpecies = dex.getSpecies('Arceus-Primal');
+			} else if (item.id === 'crystalpiecegiratina' && species.id === 'giratina') {
+				tierSpecies = dex.getSpecies('Giratina-Primal');
+			} else if (item.id === 'crystalpieceregigigas' && species.id === 'regigigas') {
+				tierSpecies = dex.getSpecies('Regigigas-Primal');
 			} else if (species.id === 'rayquaza' && set.moves.map(toID).includes('dragonascent' as ID)) {
 				tierSpecies = dex.getSpecies('Rayquaza-Mega');
 			}
@@ -522,6 +531,8 @@ export class TeamValidator {
 						problems.push(`${name}'s Hidden Ability is unreleased.`);
 					} else if (dex.gen === 7 && ['entei', 'suicune', 'raikou'].includes(species.id) && this.minSourceGen > 1) {
 						problems.push(`${name}'s Hidden Ability is only available from Virtual Console, which is not allowed in this format.`);
+					} else if (['registeeldelta'].includes(species.id) && set.moves.includes('stealthrock')) {
+						problems.push(`${name}'s Hidden Ability transforms Stealth Rocks into Stealth Coal, you can use that instead.`);
 					} else if (dex.gen === 6 && ability.name === 'Symbiosis' &&
 						(set.species.endsWith('Orange') || set.species.endsWith('White'))) {
 						problems.push(`${name}'s Hidden Ability is unreleased for the Orange and White forms.`);
