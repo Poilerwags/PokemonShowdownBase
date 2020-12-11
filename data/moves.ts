@@ -19848,7 +19848,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source) {
 			if target.hasType('Grass') {
 				for (target in target.side.pokemon) {
-					source.trySetStatus('par', target)
+					source.trySetStatus('brn', target)
 				}
 			}
 		},
