@@ -87,7 +87,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (target.getMoveHitData(move).typeMod === -1) {
 				return this.chainModify(2);
 			}
-			if (target.getMoveHitData(move).typeMod === -1) {
+			if (target.getMoveHitData(move).typeMod === -2) {
 				return this.chainModify(4);
 			}
 		},
