@@ -1089,7 +1089,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	crystalfragment: {
 		name: "Crystal Fragment",
 		spritenum: 576,
-		megaStone: "Metagross-Crystal",
+		megaStone: "Metagross-Delta-R-Crystal",
 		megaEvolves: "Metagross-Delta-R",
 		itemUser: ["Metagross-Delta-R"],
 		onTakeItem(item, source) {
