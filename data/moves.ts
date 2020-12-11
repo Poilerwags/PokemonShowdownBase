@@ -19848,13 +19848,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'brn',
-		onHit(target, source) {
-			if (target.hasType('Grass')) {
-				for (target of target.side.pokemon) {
-					source.trySetStatus('brn', target);
-				}
-			}
-		},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Fire",
