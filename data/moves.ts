@@ -19849,7 +19849,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'brn',
 		onHit(target, source) {
-			if target.hasType('Grass') {
+			if (target.hasType('Grass')) {
 				for (target in target.side.pokemon) {
 					source.trySetStatus('brn', target)
 				}
