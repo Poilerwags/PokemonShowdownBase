@@ -9937,7 +9937,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
-				const rand = Math.ceil(Math.random()*10);
+				const rand = Math.ceil(Math.random() * 10);
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Electric') || pokemon.hasType('Ground')) {
 					this.add('-sideend', pokemon.side, 'move: Livewire', '[of] ' + pokemon);
@@ -12778,7 +12778,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
-				const rand = Math.ceil(Math.random()*10);
+				const rand = Math.ceil(Math.random() * 10);
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Ice') || pokemon.hasType('Fire')) {
 					this.add('-sideend', pokemon.side, 'move: Permafrost', '[of] ' + pokemon);
@@ -19850,8 +19850,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		status: 'brn',
 		onHit(target, source) {
 			if (target.hasType('Grass')) {
-				for (target in target.side.pokemon) {
-					source.trySetStatus('brn', target)
+				for (target of target.side.pokemon) {
+					source.trySetStatus('brn', target);
 				}
 			}
 		},
