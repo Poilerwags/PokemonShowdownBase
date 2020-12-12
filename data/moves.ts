@@ -19782,6 +19782,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Tough",
 	},
+	wildfire: {
+		num: 752,
+		accuracy: 70,
+		basePower: 0,
+		category: "Status",
+		name: "Wildfire",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		status: 'brn',
+		onHit(target, source) {
+			if (target.hasType('Grass')) {
+				for (target of target.side.pokemon) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Fire",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 	willowisp: {
 		num: 261,
 		accuracy: 85,
