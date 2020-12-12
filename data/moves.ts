@@ -9925,6 +9925,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'livewire',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Livewire');
+				this.effectData.layers = 1;
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 5) return false;
+				this.add('-sidestart', side, 'move: Livewire');
+				this.effectData.layers++;
+			},
+			onSwitchIn(pokemon) {
+				const rand = Math.ceil(Math.random() * 10);
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Electric') || pokemon.hasType('Ground')) {
+					this.add('-sideend', pokemon.side, 'move: Livewire', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('livewire');
+				} else if (pokemon.hasItem('heavydutyboots')) {
+					return;
+				} else if (
+					['raindance', 'primordialsea'].includes(pokemon.effectiveWeather()) &&
+					4 * this.effectData.layers >= rand) {
+					pokemon.trySetStatus('par', pokemon.side.foe.active[0]);
+				} else if (2 * this.effectData.layers >= rand) {
+					pokemon.trySetStatus('par', pokemon.side.foe.active[0]);
+				}
+			},
+		},
 		secondary: null,
 		target: "foeSide",
 		type: "Electric",
@@ -12738,6 +12766,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'permafrost',
+		condition: {
+			// this is a side condition
+			onStart(side) {
+				this.add('-sidestart', side, 'move: Permafrost');
+				this.effectData.layers = 1;
+			},
+			onRestart(side) {
+				if (this.effectData.layers >= 5) return false;
+				this.add('-sidestart', side, 'move: Permafrost');
+				this.effectData.layers++;
+			},
+			onSwitchIn(pokemon) {
+				const rand = Math.ceil(Math.random() * 10);
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Ice') || pokemon.hasType('Fire')) {
+					this.add('-sideend', pokemon.side, 'move: Permafrost', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('permafrost');
+				} else if (pokemon.hasItem('heavydutyboots')) {
+					return;
+				} else if (
+					['hail', 'sleet'].includes(pokemon.effectiveWeather()) &&
+					2 * this.effectData.layers >= rand) {
+					pokemon.trySetStatus('frz', pokemon.side.foe.active[0]);
+				} else if (this.effectData.layers >= rand) {
+					pokemon.trySetStatus('frz', pokemon.side.foe.active[0]);
+				}
+			},
+		},
 		secondary: null,
 		target: "foeSide",
 		type: "Ice",
