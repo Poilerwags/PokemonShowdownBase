@@ -691,36 +691,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
-	sleet: {
-		name: 'Sleet',
-		effectType: 'Weather',
-		duration: 5,
-		durationCallback(source, effect) {
-			if (source?.hasItem('icyrock')) {
-				return 8;
-			}
-			return 5;
-		},
-		onStart(battle, source, effect) {
-			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
-				this.add('-weather', 'Sleet', '[from] ability: ' + effect, '[of] ' + source);
-			} else {
-				this.add('-weather', 'Sleet');
-			}
-		},
-		onResidualOrder: 1,
-		onResidual() {
-			this.add('-weather', 'Sleet', '[upkeep]');
-			if (this.field.isWeather('Sleet')) this.eachEvent('Weather');
-		},
-		onWeather(target) {
-			this.damage(target.maxhp / 8);
-		},
-		onEnd() {
-			this.add('-weather', 'none');
-		},
-	},
 	deltastream: {
 		name: 'DeltaStream',
 		effectType: 'Weather',

@@ -974,28 +974,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	etherealshroud: {
 		onTryHit(target, source, move) {
-			if (move.category === 'Status' || source.hasAbility('Scrappy')) return;
-			if (target !== source && move.type === 'Normal') {
-				if (!this.boost({atk: 0})) {
-					this.add('-immune', target, '[from] ability: Ethereal Shroud');
-				}
-				return null;
-			}
-			if (target !== source && move.type === 'Fighting') {
-				if (!this.boost({atk: 0})) {
-					this.add('-immune', target, '[from] ability: Ethereal Shroud');
-				}
+			if (move.category === 'Status' || source.hasAbility('Scrappy') || target === source) return;
+			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
+			if (move.type === 'Normal' || move.type === 'Fighting') {
+				this.add('-immune', target, '[from] ability: Ethereal Shroud');
 				return null;
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (move.category === 'Status' || source.hasAbility('Scrappy')) return;
-			if (target === this.effectData.target || target.side !== source.side) return;
-			if (move.type === 'Normal') {
-				this.boost({atk: 0}, this.effectData.target);
-			}
-			if (move.type === 'Fighting') {
-				this.boost({atk: 0}, this.effectData.target);
+			if (move.category === 'Status' || source.hasAbility('Scrappy') || target === source) return;
+			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
+			if (move.type === 'Normal' || move.type === 'Fighting') {
+				this.add('-immune', this.effectData.target, '[from] ability: Ethereal Shroud');
 			}
 		},
 		onSourceModifyAtkPriority: 6,
@@ -1207,7 +1197,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'sleet':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			case 'newmoon':
@@ -1645,7 +1634,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	iceface: {
 		onStart(pokemon) {
-			if (this.field.isWeather(['hail', 'sleet']) && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
+			if (this.field.isWeather('hail') && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectData.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -1684,7 +1673,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyWeatherStart() {
 			const pokemon = this.effectData.target;
 			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'sleet']) && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
+			if (this.field.isWeather('hail') && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectData.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -2658,7 +2647,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	overcoat: {
 		onImmunity(type, pokemon) {
-			if (type === 'sandstorm' || type === 'hail' || type === 'sleet' || type === 'powder') return false;
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
 		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
@@ -3210,7 +3199,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAccuracy(accuracy, pokemon) {
 			if (pokemon.types[0] !== 'Ice') return;
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather(['hail', 'sleet'])) {
+			if (this.field.isWeather('hail')) {
 				this.debug('Snow Cloak - decreasing accuracy');
 				return accuracy * 0.8;
 			}
@@ -3935,7 +3924,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	slushrush: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['hail', 'sleet'])) {
+			if (this.field.isWeather('hail')) {
 				return this.chainModify(2);
 			}
 		},
@@ -3961,7 +3950,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather(['hail', 'sleet'])) {
+			if (this.field.isWeather('hail')) {
 				this.debug('Snow Cloak - decreasing accuracy');
 				return accuracy * 0.8;
 			}
@@ -4703,7 +4692,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	vaporization: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water' && move.category !== 'Status') {
+			if move.category === 'Status') return;
+			if (target !== source && move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Vaporization');
 				return null;
 			}
@@ -4713,7 +4703,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !target.hp) continue;
 				if (target.hasType('Water')) {
-					this.damage(target.maxhp / 16, target, pokemon);
+					this.damage(target.maxhp / 8, target, pokemon);
+				}
+			}
+			for (const target of pokemon.side.active) {
+				if (!target || !target.hp) continue;
+				if (target.hasType('Water')) {
+					this.damage(target.maxhp / 8, target, pokemon);
 				}
 			}
 		},

@@ -816,7 +816,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		sideCondition: 'auroraveil',
 		onTry() {
 			return this.field.isWeather('hail');
-			return this.field.isWeather('sleet');
 		},
 		condition: {
 			duration: 5,
@@ -1363,7 +1362,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move) {
-			if (this.field.isWeather('hail') || this.field.isWeather('sleet')) move.accuracy = true;
+			if (this.field.isWeather('hail')) move.accuracy = true;
 		},
 		secondary: {
 			chance: 10,
@@ -3318,7 +3317,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			onImmunity(type, pokemon) {
-				if (type === 'sandstorm' || type === 'hail' || type === 'sleet') return false;
+				if (type === 'sandstorm' || type === 'hail') return false;
 			},
 			onInvulnerability(target, source, move) {
 				if (['earthquake', 'magnitude'].includes(move.id)) {
@@ -3469,7 +3468,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			onImmunity(type, pokemon) {
-				if (type === 'sandstorm' || type === 'hail' || type === 'sleet') return false;
+				if (type === 'sandstorm' || type === 'hail') return false;
 			},
 			onInvulnerability(target, source, move) {
 				if (['surf', 'whirlpool'].includes(move.id)) {
@@ -5733,6 +5732,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target) {
 			if (target.hasType('Grass')) return false;
 			if (!target.addType('Grass')) return false;
+			if (target.hasAbility('Ethereal Shroud')) return false;
 			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
 		},
 		secondary: null,
@@ -11804,7 +11804,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
-			case 'sleet':
 				factor = 0.25;
 				break;
 			case 'newmoon':
@@ -11839,7 +11838,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
-			case 'sleet':
 				factor = 0.25;
 				break;
 			case 'newmoon':
@@ -12786,7 +12784,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				} else if (pokemon.hasItem('heavydutyboots')) {
 					return;
 				} else if (
-					['hail', 'sleet'].includes(pokemon.effectiveWeather()) &&
+					['hail'].includes(pokemon.effectiveWeather()) &&
 					2 * this.effectData.layers >= rand) {
 					pokemon.trySetStatus('frz', pokemon.side.foe.active[0]);
 				} else if (this.effectData.layers >= rand) {
@@ -16502,7 +16500,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (['raindance', 'primordialsea', 'sandstorm', 'hail', 'sleet'].includes(pokemon.effectiveWeather())) {
+			if (['raindance', 'primordialsea', 'sandstorm', 'hail'].includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -16542,7 +16540,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (['raindance', 'primordialsea', 'sandstorm', 'hail', 'sleet'].includes(pokemon.effectiveWeather())) {
+			if (['raindance', 'primordialsea', 'sandstorm', 'hail'].includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -18058,7 +18056,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				break;
 			case 'raindance':
 			case 'primordialsea':
-			case 'sleet':
 			case 'sandstorm':
 			case 'hail':
 				factor = 0.25;
@@ -19024,6 +19021,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target) {
 			if (target.hasType('Ghost')) return false;
 			if (!target.addType('Ghost')) return false;
+			if (target.hasAbility('Ethereal Shroud')) return false;
 			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
 
 			if (target.side.active.length === 2 && target.position === 1) {
@@ -19698,7 +19696,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.type = 'Rock';
 				break;
 			case 'hail':
-			case 'sleet':
 				move.type = 'Ice';
 				break;
 			}
@@ -19717,7 +19714,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.basePower *= 2;
 				break;
 			case 'hail':
-			case 'sleet':
 				move.basePower *= 2;
 				break;
 			}

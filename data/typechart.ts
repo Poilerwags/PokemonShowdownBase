@@ -303,7 +303,6 @@ export const TypeChart: {[k: string]: TypeData} = {
 	Ice: {
 		damageTaken: {
 			hail: 3,
-			sleet: 3,
 			frz: 3,
 			Bug: 0,
 			Crystal: 0,
