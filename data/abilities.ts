@@ -4683,7 +4683,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	vampiric: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.flags['contact']) {
-				this.heal(pokemon.lastDamage / 8, pokemon);
+				this.heal(pokemon.lastDamage / 4, pokemon);
 			}
 		},
 		name: "Vampiric",
