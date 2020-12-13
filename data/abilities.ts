@@ -394,7 +394,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.category === 'Status') return;
 			if (move.type === 'Fire') {
 				this.boost({spa: 1, atk: 1, spe: 1}, attacker);
-				attacker.formeChange('Emolga-Delta-Active');
+				attacker.formeChange('Emolga-Delta-Fired');
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
