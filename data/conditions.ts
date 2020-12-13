@@ -680,8 +680,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'Hail', '[upkeep]');
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
 		},
-		onWeather(target) {
-			this.damage(target.baseMaxhp / 16);
+		onWeather(target, source) {
+			if (target.hasAbility('Sleet') || source.hasAbility('Sleet')) {
+				this.damage(target.baseMaxhp / 8);
+			} else {
+				this.damage(target.baseMaxhp / 16);
+			}
 		},
 		onEnd() {
 			this.add('-weather', 'none');

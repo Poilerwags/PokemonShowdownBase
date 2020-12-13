@@ -3899,18 +3899,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	sleet: {
 		onStart(source) {
-			this.field.setWeather('sleet');
-		},
-		onEnd(pokemon) {
-			if (this.field.weatherData.source !== pokemon) return;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('sleet')) {
-					this.field.weatherData.source = target;
-					return;
-				}
-			}
-			this.field.clearWeather();
+			this.field.setWeather('hail');
 		},
 		name: "Sleet",
 		rating: 4,
