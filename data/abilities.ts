@@ -139,6 +139,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 148,
 	},
+	ancientpresence: {
+		onBasePower(move) {
+			if (!move.forceSTAB) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDamage(move) {
+			if (target.getMoveHitData(move).typeMod = -1) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+			if (target.getMoveHitData(move).typeMod = -2) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(4);
+			}
+			if (target.getMoveHitData(move).typeMod = -3) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(8);
+			}
+		},
+		name: "Ancient Presence",
+		rating: 2,
+		num: 304,
+	},
 	angerpoint: {
 		onHit(target, source, move) {
 			if (!target.hp) return;
