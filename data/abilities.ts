@@ -1941,7 +1941,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	irrelephant: {
 		onModifyMovePriority: -5,
     onModifyMove(move, source, target) {
-			if target.hasAbility('wonderguard') return;
+			if (target.hasAbility('wonderguard')) return;
       if (!move.ignoreImmunity) move.ignoreImmunity = {};
       if (move.ignoreImmunity !== true) {
         move.ignoreImmunity['Psychic'] = true;
