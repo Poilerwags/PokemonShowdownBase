@@ -4717,6 +4717,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 		num: 258,
 	},
+	venomous: {
+		onModifyMove(move) {
+			if (move.secondaries.status === 'psn') {
+				move.secondaries.push({
+					status: 'tox',
+				});
+			}
+		},
+		name: "Venomous",
+		rating: 2,
+		num: 302,
+	},
 	victorystar: {
 		onAllyModifyMove(move) {
 			if (typeof move.accuracy === 'number') {
