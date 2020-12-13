@@ -3539,11 +3539,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 3,
 			onStart(pokemon) {
-				if (!pokemon.hasAbility('Periodic Orbit')) return;
+				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-start', pokemon, 'periodicdoom');
 			},
 			onEnd(targetSide) {
-				if (!pokemon.hasAbility('Periodic Orbit')) return;
+				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-end', pokemon, 'periodicdoom');
 				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 					move: 'doomdesire',
@@ -5759,7 +5759,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target) {
 			if (target.hasType('Grass')) return false;
 			if (!target.addType('Grass')) return false;
-			if (target.hasAbility('Ethereal Shroud')) return false;
+			if (target.hasAbility('etherealshroud')) return false;
 			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
 		},
 		secondary: null,
@@ -6060,11 +6060,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 3,
 			onStart(pokemon) {
-				if (!pokemon.hasAbility('Periodic Orbit')) return;
+				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-start', pokemon, 'periodicsight');
 			},
 			onEnd(targetSide) {
-				if (!pokemon.hasAbility('Periodic Orbit')) return;
+				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-end', pokemon, 'periodicsight');
 				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 					duration: 3,
@@ -19056,7 +19056,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target) {
 			if (target.hasType('Ghost')) return false;
 			if (!target.addType('Ghost')) return false;
-			if (target.hasAbility('Ethereal Shroud')) return false;
+			if (target.hasAbility('etherealshroud')) return false;
 			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
 
 			if (target.side.active.length === 2 && target.position === 1) {
