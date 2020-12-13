@@ -266,7 +266,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || !target.hp) continue;
 				if (target.status === 'slp' || target.hasAbility('comatose')) {
-					if (this.field.isWeather(['newmoon'])) {
+					if (this.field.isWeather('newmoon')) {
 						this.damage(target.baseMaxhp / 4, target, pokemon);
 					} else {
 						this.damage(target.baseMaxhp / 8, target, pokemon);
@@ -2823,16 +2823,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 246,
 	},
 	phototroph: {
-		onWeather(target, source, effect) {
-			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-				this.heal(target.maxhp / 16);
-			}
-		},
 		onResidualOrder: 5,
-		onResidualSubOrder: 2,
+		onResidualSubOrder: 5,
 		onResidual(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return;
-			this.heal(pokemon.maxhp / 16);
+			if (['raindance', 'primordialsea', 'newmoon'].includes(pokemon.effectiveWeather())) return;
+			if (this.field.isWeather(['sunnyday', 'desolateland']) {
+				this.heal(pokemon.baseMaxhp / 8);
+			} else {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			if (['raindance', 'primordialsea', 'newmoon'].includes(pokemon.effectiveWeather())) return;
+			if (this.field.isWeather(['sunnyday', 'desolateland']) {
+				this.heal(pokemon.baseMaxhp / 8);
+			} else {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
 		},
 		name: "Phototroph",
 		rating: 1.5,
@@ -3025,7 +3034,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onDeductPP(target, source) {
 			if (target.side === source.side) return;
-			if (this.field.isWeather(['newmoon'])) {
+			if (this.field.isWeather('newmoon')) {
 				return 2;
 			} else {
 				return 1;
@@ -3712,7 +3721,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	shadowdance: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['newmoon'])) {
+			if (this.field.isWeather('newmoon')) {
 				return this.chainModify(2);
 			}
 		},
