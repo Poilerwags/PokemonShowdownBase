@@ -974,8 +974,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	etherealshroud: {
 		onTryHit(target, source, move) {
-			if (move.category === 'Status') return;
-			if (source.hasAbility('Scrappy')) return;
+			if (move.category === 'Status' || source.hasAbility('Scrappy')) return;
 			if (target !== source && move.type === 'Normal') {
 				if (!this.boost({atk: 0})) {
 					this.add('-immune', target, '[from] ability: Ethereal Shroud');
@@ -990,8 +989,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (move.category === 'Status') return;
-			if (source.hasAbility('Scrappy')) return;
+			if (move.category === 'Status' || source.hasAbility('Scrappy')) return;
 			if (target === this.effectData.target || target.side !== source.side) return;
 			if (move.type === 'Normal') {
 				this.boost({atk: 0}, this.effectData.target);
