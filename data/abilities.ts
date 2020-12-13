@@ -440,7 +440,26 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	chlorofury: {
 		onStart(pokemon) {
-			this.boost({spa: 1, atk: 1});
+			pokemon.addVolatile('chlorofury');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['chlorofury'];
+			this.add('-end', pokemon, 'Chlorofury', '[silent]');
+		},
+		condition: {
+			duration: 2,
+			onStart(target, move) {
+				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
+				spaBoost = move.allies.length;
+				this.add('-start', target, 'ability: Chlorofury');
+				this.boost({spe: 1, spa: spaBoost});
+			},
+			onEnd(target) {
+				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
+				spaBoost = move.allies.length;
+				this.add('-end', target, 'Slow Start');
+				this.boost({spe: -1, spa: -spaBoost});
+			},
 		},
 		name: "Chlorofury",
 		rating: 3.5,
