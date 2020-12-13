@@ -457,7 +457,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			onEnd(target) {
 				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
 				spaBoost = move.allies.length;
-				this.add('-end', target, 'Slow Start');
+				this.add('-end', target, 'Chlorofury');
 				this.boost({spe: -1, spa: -spaBoost});
 			},
 		},
@@ -4690,6 +4690,29 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Unburden",
 		rating: 3.5,
 		num: 84,
+	},
+	unleafed: {
+		onStart(pokemon) {
+			pokemon.addVolatile('unleafed');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['unleafed'];
+			this.add('-end', pokemon, 'Unleafed', '[silent]');
+		},
+		condition: {
+			duration: ((pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted)).length + 1),
+			onStart(target, move) {
+				this.add('-start', target, 'ability: Unleafed');
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Unleafed');
+				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
+			},
+		},
+		name: "Unleafed",
+		rating: 2.5,
+		num: 303,
 	},
 	unnerve: {
 		onPreStart(pokemon) {
