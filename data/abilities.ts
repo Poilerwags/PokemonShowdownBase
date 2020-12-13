@@ -2951,7 +2951,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidual(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return;
 			if (['raindance', 'primordialsea', 'newmoon'].includes(pokemon.effectiveWeather())) return;
-			if (this.field.isWeather(['sunnyday', 'desolateland']) {
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.baseMaxhp / 8);
 			} else {
 				this.heal(pokemon.baseMaxhp / 16);
@@ -2960,7 +2960,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onTerrain(pokemon) {
 			if (!this.field.isTerrain('grassyterrain')) return;
 			if (['raindance', 'primordialsea', 'newmoon'].includes(pokemon.effectiveWeather())) return;
-			if (this.field.isWeather(['sunnyday', 'desolateland']) {
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.baseMaxhp / 8);
 			} else {
 				this.heal(pokemon.baseMaxhp / 16);
