@@ -4743,7 +4743,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	vaporization: {
 		onTryHit(target, source, move) {
-			if move.category === 'Status') return;
 			if (target !== source && move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Vaporization');
 				return null;
