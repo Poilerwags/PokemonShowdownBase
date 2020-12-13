@@ -391,8 +391,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	firedup: {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
-			if (move.category !== 'Status' && move.type === 'Fire') {
+			if (move.category === 'Status') return;
+			if (move.type === 'Fire') {
 				this.boost({spa: 1, atk: 1, spe: 1}, attacker);
+				attacker.formeChange('Emolga-Delta-Active');
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (!source.transformed) return;
+			if (move.flags['contact']) {
+				if (this.randomChance(1, 10)) {
+					source.trySetStatus('brn', target);
+				}
 			}
 		},
 		name: "Fired Up",
