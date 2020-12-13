@@ -146,15 +146,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onModifyDamage(move) {
-			if (target.getMoveHitData(move).typeMod = -1) {
+			if (target.getMoveHitData(move).typeMod === -1) {
 				this.debug('Tinted Lens boost');
 				return this.chainModify(2);
 			}
-			if (target.getMoveHitData(move).typeMod = -2) {
+			if (target.getMoveHitData(move).typeMod === -2) {
 				this.debug('Tinted Lens boost');
 				return this.chainModify(4);
 			}
-			if (target.getMoveHitData(move).typeMod = -3) {
+			if (target.getMoveHitData(move).typeMod === -3) {
 				this.debug('Tinted Lens boost');
 				return this.chainModify(8);
 			}
@@ -1940,24 +1940,24 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	irrelephant: {
 		onModifyMovePriority: -5,
-    onModifyMove(move, source, target) {
+		onModifyMove(move, source, target) {
 			if (target.hasAbility('wonderguard')) return;
-      if (!move.ignoreImmunity) move.ignoreImmunity = {};
-      if (move.ignoreImmunity !== true) {
-        move.ignoreImmunity['Psychic'] = true;
-        move.ignoreImmunity['Electric'] = true;
-        move.ignoreImmunity['Poison'] = true;
-        move.ignoreImmunity['Ghost'] = true;
-        move.ignoreImmunity['Dragon'] = true;
-        if (target.hasAbility('etherealshroud') === false) {
-          move.ignoreImmunity['Fighting'] = true;
-          move.ignoreImmunity['Normal'] = true;
-        }
-        if (!target.hasAbility('levitate') && !target.hasItem('airballoon')) {
-          move.ignoreImmunity['Ground'] = true;
-        }
-      }
-    },
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Psychic'] = true;
+				move.ignoreImmunity['Electric'] = true;
+				move.ignoreImmunity['Poison'] = true;
+				move.ignoreImmunity['Ghost'] = true;
+				move.ignoreImmunity['Dragon'] = true;
+				if (target.hasAbility('etherealshroud') === false) {
+					move.ignoreImmunity['Fighting'] = true;
+					move.ignoreImmunity['Normal'] = true;
+				}
+				if (!target.hasAbility('levitate') && !target.hasItem('airballoon')) {
+					move.ignoreImmunity['Ground'] = true;
+				}
+			}
+		},
 		name: "Irrelephant",
 		rating: 3,
 		num: 245,
