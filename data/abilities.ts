@@ -1017,7 +1017,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	etherealshroud: {
 		onTryHit(target, source, move) {
-			if (move.category === 'Status' || source.hasAbility('Scrappy') || target === source) return;
+			if (move.category === 'Status' || source.hasAbility('scrappy') || target === source) return;
 			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
 			if (move.type === 'Normal' || move.type === 'Fighting') {
 				this.add('-immune', target, '[from] ability: Ethereal Shroud');
@@ -1025,7 +1025,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (move.category === 'Status' || source.hasAbility('Scrappy') || target === source) return;
+			if (move.category === 'Status' || source.hasAbility('scrappy') || target === source) return;
 			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
 			if (move.type === 'Normal' || move.type === 'Fighting') {
 				this.add('-immune', this.effectData.target, '[from] ability: Ethereal Shroud');
@@ -1939,6 +1939,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 89,
 	},
 	irrelephant: {
+		onModifyMovePriority: -5,
+    onModifyMove(move, source, target) {
+			if target.hasAbility('wonderguard') return;
+      if (!move.ignoreImmunity) move.ignoreImmunity = {};
+      if (move.ignoreImmunity !== true) {
+        move.ignoreImmunity['Psychic'] = true;
+        move.ignoreImmunity['Electric'] = true;
+        move.ignoreImmunity['Poison'] = true;
+        move.ignoreImmunity['Ghost'] = true;
+        move.ignoreImmunity['Dragon'] = true;
+        if (target.hasAbility('etherealshroud') === false) {
+          move.ignoreImmunity['Fighting'] = true;
+          move.ignoreImmunity['Normal'] = true;
+        }
+        if (!target.hasAbility('levitate') && !target.hasItem('airballoon')) {
+          move.ignoreImmunity['Ground'] = true;
+        }
+      }
+    },
 		name: "Irrelephant",
 		rating: 3,
 		num: 245,
