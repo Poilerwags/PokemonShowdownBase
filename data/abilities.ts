@@ -153,11 +153,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod < 0) {
 				this.debug('Ancient Presence boost');
-				return target.getMoveHitData(move).typeMod = 0;
+				target.getMoveHitData(move).typeMod = 0;
 			}
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Ancient Presence boost');
-				return target.getMoveHitData(move).typeMod = 0;
+				target.getMoveHitData(move).typeMod = 0;
 			}
 		},
 		name: "Ancient Presence",
