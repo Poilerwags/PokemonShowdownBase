@@ -141,21 +141,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	ancientpresence: {
 		onBasePower(move) {
-			if (!move.stab) {
-				return this.chainModify(1.5);
-			}
+			if (move.type === 'Normal' || move.type === 'Dragon') return;
+			return this.chainModify(1.5);
 		},
 		onModifyDamage(move, target) {
 			if (target.getMoveHitData(move).typeMod === -1) {
-				this.debug('Tinted Lens boost');
+				this.debug('Ancient Presence boost');
 				return this.chainModify(2);
 			}
 			if (target.getMoveHitData(move).typeMod === -2) {
-				this.debug('Tinted Lens boost');
+				this.debug('Ancient Presence boost');
 				return this.chainModify(4);
 			}
 			if (target.getMoveHitData(move).typeMod === -3) {
-				this.debug('Tinted Lens boost');
+				this.debug('Ancient Presence boost');
 				return this.chainModify(8);
 			}
 		},
@@ -474,13 +473,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			duration: 2,
 			onStart(pokemon, move) {
 				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				spaBoost = move.allies.length;
+				const spaBoost = move.allies.length;
 				this.add('-start', pokemon, 'ability: Chlorofury');
 				this.boost({spe: 1, spa: spaBoost});
 			},
 			onEnd(pokemon, move) {
 				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				spaBoost = move.allies.length;
+				const spaBoost = move.allies.length;
 				this.add('-end', pokemon, 'Chlorofury');
 				this.boost({spe: -1, spa: -spaBoost});
 			},
