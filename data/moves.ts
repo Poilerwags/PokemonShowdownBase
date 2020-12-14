@@ -19920,31 +19920,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		slotCondition: 'Wish',
-		condition: {
-			duration: 2,
-			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 2;
-			},
-			onResidualOrder: 4,
-			onEnd(target) {
-				if (target && !target.fainted) {
-					const damage = this.heal(this.effectData.hp, target, target);
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
-				}
-			},
+		onStart(pokemon, source) {
+			this.effectData.hp = source.maxhp / 2;
+			this.turns = 0;
 		},
-		condition2: {
-			duration: 4,
-			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 2;
-			},
-			onResidualOrder: 4,
-			onEnd(target) {
+		onResidualOrder: 4,
+		onResidual(target) {
+			if (this.turns === 1) {
 				if (target && !target.fainted) {
 					const damage = this.heal(this.effectData.hp, target, target);
 					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 				}
-			},
+			}
+			if (this.turns === 3) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectData.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
+				}
+			}
+			this.turns += 1;
 		},
 		secondary: null,
 		target: "self",
