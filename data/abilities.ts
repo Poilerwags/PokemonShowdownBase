@@ -473,17 +473,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		condition: {
 			duration: 2,
-			onStart(pokemon, move) {
-				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				const spaBoost = move.allies.length;
-				this.add('-start', pokemon, 'ability: Chlorofury');
-				this.boost({spe: 1, spa: spaBoost});
+			onStart(pokemon) {
+				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length;
+				this.boost({spe: 1, spa: spaBoost}, pokemon);
 			},
-			onEnd(pokemon, move) {
-				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				const spaBoost = move.allies.length;
-				this.add('-end', pokemon, 'Chlorofury');
-				this.boost({spe: -1, spa: -spaBoost});
+			onEnd(pokemon) {
+				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length;
+				this.boost({spe: -1, spa: -spaBoost}, pokemon);
 			},
 		},
 		name: "Chlorofury",
