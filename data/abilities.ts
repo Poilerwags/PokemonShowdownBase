@@ -4801,10 +4801,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-end', pokemon, 'Unleafed', '[silent]');
 		},
 		condition: {
-			onStart(pokemon) {
+			onTry(pokemon) {
 				const boostDur = ((pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted)).length + 1);
+				duration: boostDur;
 			},
-			duration: boostDur,
 			onStart(target, move) {
 				this.add('-start', target, 'ability: Unleafed');
 				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
