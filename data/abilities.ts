@@ -4801,7 +4801,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
 				const boostDur = ((pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted)).length + 1) - pokemon.activeTurns;
-				if boostDur = 0 {
+				if (boostDur = 0) {
 					this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
 				}
 			}
