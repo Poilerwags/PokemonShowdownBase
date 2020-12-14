@@ -3561,6 +3561,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 						type: 'Steel',
 					},
 				});
+				this.add('-start', source, 'Doom Desire');
+				return null;
 			},
 		},
 		secondary: null,
@@ -6084,6 +6086,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 						type: 'Psychic',
 					},
 				});
+				this.add('-start', source, 'move: Future Sight');
+				return null;
 			},
 		},
 		secondary: null,
@@ -19945,7 +19949,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		condition: {
+		condition2: {
 			duration: 4,
 			onStart(pokemon, source) {
 				this.effectData.hp = source.maxhp / 2;

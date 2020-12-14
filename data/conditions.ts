@@ -681,7 +681,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
 		},
 		onWeather(target, source) {
-			if (target?.hasAbility('Sleet') || source?.hasAbility('Sleet')) {
+			if (target?.hasAbility('Sleet') || source.hasAbility('Sleet')) {
 				this.damage(target.baseMaxhp / 8);
 			} else {
 				this.damage(target.baseMaxhp / 16);
