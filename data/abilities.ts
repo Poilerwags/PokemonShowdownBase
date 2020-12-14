@@ -1938,7 +1938,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	irrelephant: {
 		onModifyMovePriority: -5,
 		onModifyMove(move, source, target) {
-			if (target.hasAbility('wonderguard')) return;
+			if (target?.hasAbility('wonderguard')) return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Psychic'] = true;
@@ -1946,11 +1946,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				move.ignoreImmunity['Poison'] = true;
 				move.ignoreImmunity['Ghost'] = true;
 				move.ignoreImmunity['Dragon'] = true;
-				if (target.hasAbility('etherealshroud') === false) {
+				if (target?.hasAbility('etherealshroud') === false) {
 					move.ignoreImmunity['Fighting'] = true;
 					move.ignoreImmunity['Normal'] = true;
 				}
-				if (!target.hasAbility('levitate') && !target.hasItem('airballoon')) {
+				if (!target?.hasAbility('levitate') && !target.hasItem('airballoon')) {
 					move.ignoreImmunity['Ground'] = true;
 				}
 			}
