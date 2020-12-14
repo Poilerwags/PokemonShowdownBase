@@ -4800,7 +4800,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
-				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted)
+				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
 				const boostDur = (fainted.length + 1) - pokemon.activeTurns;
 				if (boostDur === 0) {
 					this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
