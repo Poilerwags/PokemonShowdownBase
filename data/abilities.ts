@@ -140,22 +140,24 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 148,
 	},
 	ancientpresence: {
-		onBasePower(move) {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Normal' || move.type === 'Dragon') return;
 			return this.chainModify(1.5);
 		},
-		onModifyDamage(move, target) {
-			if (target.getMoveHitData(move).typeMod === -1) {
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Normal' || move.type === 'Dragon') return;
+			return this.chainModify(1.5);
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
 				this.debug('Ancient Presence boost');
-				return this.chainModify(2);
+				return target.getMoveHitData(move).typeMod = 0;
 			}
-			if (target.getMoveHitData(move).typeMod === -2) {
+			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Ancient Presence boost');
-				return this.chainModify(4);
-			}
-			if (target.getMoveHitData(move).typeMod === -3) {
-				this.debug('Ancient Presence boost');
-				return this.chainModify(8);
+				return target.getMoveHitData(move).typeMod = 0;
 			}
 		},
 		name: "Ancient Presence",
