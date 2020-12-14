@@ -19923,23 +19923,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			onStart(pokemon, source) {
 				this.effectData.hp = source.maxhp / 2;
-				this.turns = 0;
+				const turns = 0;
 			},
 			onResidualOrder: 4,
 			onResidual(target) {
-				if (this.turns === 1) {
+				if (turns === 1) {
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				if (this.turns === 3) {
+				if (turns === 3) {
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				this.turns += 1;
+				turns += 1;
 			},
 		},
 		secondary: null,
