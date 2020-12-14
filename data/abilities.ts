@@ -1950,7 +1950,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					move.ignoreImmunity['Fighting'] = true;
 					move.ignoreImmunity['Normal'] = true;
 				}
-				if (!target?.hasAbility('levitate') && !target.hasItem('airballoon')) {
+				if (!target?.hasAbility('levitate') && !target?.hasItem('airballoon')) {
 					move.ignoreImmunity['Ground'] = true;
 				}
 			}
@@ -2709,55 +2709,55 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!pokemon.hasType('Bug')) {
 				this.add('-start', pokemon, 'typeadd', 'Bug', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Dark')) {
+			if (!pokemon.hasType('Dark')) {
 				this.add('-start', pokemon, 'typeadd', 'Dark', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Dragon')) {
+			if (!pokemon.hasType('Dragon')) {
 				this.add('-start', pokemon, 'typeadd', 'Dragon', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Electric')) {
+			if (!pokemon.hasType('Electric')) {
 				this.add('-start', pokemon, 'typeadd', 'Electric', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Fairy')) {
+			if (!pokemon.hasType('Fairy')) {
 				this.add('-start', pokemon, 'typeadd', 'Fairy', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Fighting')) {
+			if (!pokemon.hasType('Fighting')) {
 				this.add('-start', pokemon, 'typeadd', 'Fighting', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Fire')) {
+			if (!pokemon.hasType('Fire')) {
 				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Flying')) {
+			if (!pokemon.hasType('Flying')) {
 				this.add('-start', pokemon, 'typeadd', 'Flying', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Ghost')) {
+			if (!pokemon.hasType('Ghost')) {
 				this.add('-start', pokemon, 'typeadd', 'Ghost', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Grass')) {
+			if (!pokemon.hasType('Grass')) {
 				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Ground')) {
+			if (!pokemon.hasType('Ground')) {
 				this.add('-start', pokemon, 'typeadd', 'Ground', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Ice')) {
+			if (!pokemon.hasType('Ice')) {
 				this.add('-start', pokemon, 'typeadd', 'Ice', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Normal')) {
+			if (!pokemon.hasType('Normal')) {
 				this.add('-start', pokemon, 'typeadd', 'Normal', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Poison')) {
+			if (!pokemon.hasType('Poison')) {
 				this.add('-start', pokemon, 'typeadd', 'Poison', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Psychic')) {
+			if (!pokemon.hasType('Psychic')) {
 				this.add('-start', pokemon, 'typeadd', 'Psychic', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Rock')) {
+			if (!pokemon.hasType('Rock')) {
 				this.add('-start', pokemon, 'typeadd', 'Rock', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Steel')) {
+			if (!pokemon.hasType('Steel')) {
 				this.add('-start', pokemon, 'typeadd', 'Steel', '[from] ability: Omnitype');
 			}
-			if (!source.hasType('Water')) {
+			if (!pokemon.hasType('Water')) {
 				this.add('-start', pokemon, 'typeadd', 'Water', '[from] ability: Omnitype');
 			}
 		},
