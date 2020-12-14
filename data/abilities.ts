@@ -4869,11 +4869,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 258,
 	},
 	venomous: {
+		onModifyMovePriority: -1,
 		onModifyMove(move) {
-			if (move.secondaries.status === 'psn') {
-				move.secondaries.push({
-					status: 'tox',
-				});
+			this.debug('Badly poisoning when poisoning');
+			if (!move.secondaries) move.secondaries = [];
+			for (const secondary of move.secondaries) {
+				if (secondary.status === 'psn') {
+					move.secondaries.push({
+						status: 'tox',
+					});
+				}
 			}
 		},
 		name: "Venomous",

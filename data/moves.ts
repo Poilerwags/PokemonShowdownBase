@@ -3542,7 +3542,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-start', pokemon, 'periodicdoom');
 			},
-			onEnd(targetSide) {
+			onEnd(pokemon, target) {
 				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-end', pokemon, 'periodicdoom');
 				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
@@ -6063,7 +6063,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-start', pokemon, 'periodicsight');
 			},
-			onEnd(targetSide) {
+			onEnd(pokemon, target) {
 				if (!pokemon.hasAbility('periodicorbit')) return;
 				this.add('-end', pokemon, 'periodicsight');
 				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
