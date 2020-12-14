@@ -3536,34 +3536,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Doom Desire');
 			return null;
 		},
-		condition: {
-			duration: 3,
-			onStart(source) {
-				if (!source.hasAbility('periodicorbit')) return;
-				this.add('-start', source, 'periodicdoom');
-			},
-			onEnd(source, target) {
-				if (!source.hasAbility('periodicorbit')) return;
-				this.add('-end', source, 'periodicdoom');
-				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-					move: 'doomdesire',
-					source: source,
-					moveData: {
-						id: 'doomdesire',
-						name: "Doom Desire",
-						accuracy: 100,
-						basePower: 140,
-						category: "Special",
-						priority: 0,
-						flags: {},
-						effectType: 'Move',
-						isFutureMove: true,
-						type: 'Steel',
-					},
-				});
-				this.add('-start', source, 'Doom Desire');
-				return null;
-			},
+		onAfterHit(source, target) {
+			if (!source.hasAbility('periodicorbit')) return;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'doomdesire',
+				source: source,
+				moveData: {
+					id: 'doomdesire',
+					name: "Doom Desire",
+					accuracy: 100,
+					basePower: 140,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Steel',
+				},
+			});
+			this.add('-start', source, 'Doom Desire');
+			return null;
 		},
 		secondary: null,
 		target: "normal",
@@ -6059,36 +6051,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'move: Future Sight');
 			return null;
 		},
-		condition: {
-			duration: 3,
-			onStart(source) {
-				if (!source.hasAbility('periodicorbit')) return;
-				this.add('-start', source, 'periodicsight');
-			},
-			onEnd(source, target) {
-				if (!source.hasAbility('periodicorbit')) return;
-				this.add('-end', source, 'periodicsight');
-				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-					duration: 3,
-					move: 'futuresight',
-					source: source,
-					moveData: {
-						id: 'futuresight',
-						name: "Future Sight",
-						accuracy: 100,
-						basePower: 120,
-						category: "Special",
-						priority: 0,
-						flags: {},
-						ignoreImmunity: false,
-						effectType: 'Move',
-						isFutureMove: true,
-						type: 'Psychic',
-					},
-				});
-				this.add('-start', source, 'move: Future Sight');
-				return null;
-			},
+		onAfterHit(source, target) {
+			if (!source.hasAbility('periodicorbit')) return;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'futuresight',
+				source: source,
+				moveData: {
+					id: 'futuresight',
+					name: "Future Sight",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Psychic',
+				},
+			});
+			this.add('-start', source, 'move: Future Sight');
+			return null;
 		},
 		secondary: null,
 		target: "normal",
