@@ -141,11 +141,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	ancientpresence: {
 		onBasePower(move) {
-			if (!move.forceSTAB) {
+			if (!move.stab) {
 				return this.chainModify(1.5);
 			}
 		},
-		onModifyDamage(move) {
+		onModifyDamage(move, target) {
 			if (target.getMoveHitData(move).typeMod === -1) {
 				this.debug('Tinted Lens boost');
 				return this.chainModify(2);
@@ -472,16 +472,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		condition: {
 			duration: 2,
-			onStart(target, move) {
+			onStart(pokemon, move) {
 				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
 				spaBoost = move.allies.length;
-				this.add('-start', target, 'ability: Chlorofury');
+				this.add('-start', pokemon, 'ability: Chlorofury');
 				this.boost({spe: 1, spa: spaBoost});
 			},
-			onEnd(target) {
+			onEnd(pokemon, move) {
 				move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
 				spaBoost = move.allies.length;
-				this.add('-end', target, 'Chlorofury');
+				this.add('-end', pokemon, 'Chlorofury');
 				this.boost({spe: -1, spa: -spaBoost});
 			},
 		},
