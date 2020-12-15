@@ -19921,27 +19921,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, heal: 1},
 		slotCondition: 'Wish',
 		condition: {
-			const turns = 0;
 			onStart(pokemon, source) {
 				this.effectData.hp = source.maxhp / 2;
-				turns = 0;
+				// const turns = 0;
 			},
 			onResidualOrder: 4,
 			onResidual(source, target) {
-				if (turns === 1) {
-					if (turns && !target.fainted) {
+				if (1) { // if (turns === 1) {
+					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				if (turns === 3) {
+				if (1) { // if (turns === 3) {
 					if (!source.hasAbility('periodicorbit')) return;
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				turns += 1;
+				// turns += 1;
 			},
 		},
 		secondary: null,
