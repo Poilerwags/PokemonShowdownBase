@@ -19926,7 +19926,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const turns = 0;
 			},
 			onResidualOrder: 4,
-			onResidual(target) {
+			onResidual(source, target) {
 				if (turns === 1) {
 					if (turns && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
@@ -19934,6 +19934,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					}
 				}
 				if (turns === 3) {
+					if (!source.hasAbility('periodicorbit')) return;
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
