@@ -19932,14 +19932,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 				}
 			},
-			onResidualOrder: 5,
-			durationCallback(source, effect) {
-				if (source?.hasAbility('periodicorbit')) {
-					this.add('-activate', source, 'ability: Periodic Orbit', effect);
-					return 4;
-				}
-				return 2;
-			},
 		},
 		secondary: null,
 		target: "self",
