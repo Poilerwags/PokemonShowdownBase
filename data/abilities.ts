@@ -4019,6 +4019,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setWeather('hail');
 		},
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			if (!this.field.isWeather('hail')) return;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasType('Ice')) continue;
+				if (!target || !target.hp) continue;
+				this.damage(target.maxhp / 16, target, pokemon);
+			}
+			for (const target of pokemon.side.active) {
+				if (!target || !target.hp) continue;
+				if (target.hasType('Ice')) continue;
+				this.damage(target.maxhp / 16, target, pokemon);
+			}
+		},
 		name: "Sleet",
 		rating: 4,
 		num: 260,
