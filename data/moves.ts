@@ -19921,26 +19921,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, heal: 1},
 		slotCondition: 'Wish',
 		condition: {
+			duration: 2,
 			onStart(pokemon, source) {
 				this.effectData.hp = source.maxhp / 2;
-				// const turns = 0;
 			},
 			onResidualOrder: 4,
-			onResidual(source, target) {
-				if (target) { // if (turns === 1) {
-					if (target && !target.fainted) {
-						const damage = this.heal(this.effectData.hp, target, target);
-						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
-					}
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectData.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 				}
-				if (target) { // if (turns === 3) {
-					if (!source.hasAbility('periodicorbit')) return;
-					if (target && !target.fainted) {
-						const damage = this.heal(this.effectData.hp, target, target);
-						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
-					}
+			},
+			onResidualOrder: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('periodicorbit')) {
+					this.add('-activate', source, 'ability: Periodic Orbit', effect);
+					return 4;
 				}
-				// turns += 1;
+				return 2;
 			},
 		},
 		secondary: null,

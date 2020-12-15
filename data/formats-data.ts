@@ -3151,6 +3151,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 		tier: "OU",
 	},
+	metagrossdeltarcrystal: {
+		isNonstandard: "Past",
+		tier: "OU",
+	},
 	regirock: {
 		randomBattleMoves: ["bodypress", "curse", "earthquake", "explosion", "rest", "rockslide", "stoneedge"],
 		randomBattleLevel: 86,
