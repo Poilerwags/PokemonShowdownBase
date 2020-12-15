@@ -19921,9 +19921,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, heal: 1},
 		slotCondition: 'Wish',
 		condition: {
+			const turns = 0;
 			onStart(pokemon, source) {
 				this.effectData.hp = source.maxhp / 2;
-				const turns = 0;
+				turns = 0;
 			},
 			onResidualOrder: 4,
 			onResidual(source, target) {
