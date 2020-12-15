@@ -19923,7 +19923,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			onStart(pokemon, source) {
 				this.effectData.hp = source.maxhp / 2;
-				turns = 0;
+				const turns = 0;
 			},
 			onResidualOrder: 4,
 			onResidual(target) {
