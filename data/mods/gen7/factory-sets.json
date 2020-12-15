@@ -5702,7 +5702,7 @@
 				"evs": {"hp": 252, "def": 252, "spd": 4},
 				"nature": "Impish",
 				"moves": [["Stealth Rock"], ["Dragon Tail"], ["Earthquake"], ["Toxic"]]
-
+ 
 			}, {
 				"species": "Druddigon",
 				"item": ["Roseli Berry"],
