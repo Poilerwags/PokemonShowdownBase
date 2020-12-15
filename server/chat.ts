@@ -16,11 +16,8 @@
  */
 
 /*
-
 To reload chat commands:
-
 /hotpatch chat
-
 */
 
 import type {RoomPermission, GlobalPermission} from './user-groups';
@@ -1147,7 +1144,7 @@ export class CommandContext extends MessageContext {
 		htmlContent = ('' + (htmlContent || '')).trim();
 		if (!htmlContent) return '';
 		if (/>here.?</i.test(htmlContent) || /click here/i.test(htmlContent)) {
-			throw new Chat.ErrorMessage('Do not use "click here" – See [[Design standard #2 <https://github.com/smogon/pokemon-showdown/blob/master/CONTRIBUTING.md#design-standards>]]');
+			throw new Chat.ErrorMessage('Do not use "click here" – See [[Design standard #2 <https://github.com/smogon/pokemon-showdown/blob/master/CONTRIBUTING.md#design-standards>]]');
 		}
 
 		// check for mismatched tags
@@ -1526,7 +1523,7 @@ export const Chat = new class {
 	tr(language: ID | null, strings: TemplateStringsArray | string = '', ...keys: any[]) {
 		if (!language) language = 'english' as ID;
 		// If strings is an array (normally the case), combine before translating.
-		const trString = Array.isArray(strings) ? strings.join('${}') : strings;
+		const trString = typeof strings === 'string' ? strings : strings.join('${}');
 
 		if (!Chat.translations.has(language)) {
 			if (!Chat.translationsLoaded) return trString;
