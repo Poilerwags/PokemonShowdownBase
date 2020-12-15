@@ -19923,7 +19923,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			onStart(pokemon, source) {
 				this.effectData.hp = source.maxhp / 2;
-				this.turns = 0;
+				this.wishTurns = 0;
 			},
 			onResidualOrder: 4,
 			onResidual(target) {
@@ -19939,7 +19939,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				this.turns += 1;
+				this.wishTurns += 1;
 			},
 		},
 		secondary: null,
