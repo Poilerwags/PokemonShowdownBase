@@ -287,8 +287,6 @@ export interface ActiveMove extends MutableMove {
 	negateSecondary?: boolean;
 	normalizeBoosted?: boolean;
 	pixilateBoosted?: boolean;
-	intoxicateBoosted?: boolean;
-	foundryBoosted?: boolean;
 	pranksterBoosted?: boolean;
 	refrigerateBoosted?: boolean;
 	selfDropped?: boolean;
@@ -298,7 +296,6 @@ export interface ActiveMove extends MutableMove {
 	statusRoll?: string;
 	totalDamage?: number | false;
 	willChangeForme?: boolean;
-	willChangeFormeDelta?: boolean;
 	infiltrates?: boolean;
 
 	/**

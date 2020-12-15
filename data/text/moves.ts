@@ -134,11 +134,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "Has a 10% chance to raise the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage.",
 		shortDesc: "10% chance to raise all stats by 1 (not acc/eva).",
 	},
-	ancientroar: {
-		name: "Ancient Roar",
-		desc: "No additional effect.",
-		shortDesc: "No additional effect. Hits adjacent Pokémon.",
-	},
 	appleacid: {
 		name: "Apple Acid",
 		desc: "Has a 100% chance to lower the target's Special Defense by 1 stage.",
@@ -948,11 +943,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		name: "Corkscrew Crash",
 		shortDesc: "Power is equal to the base move's Z-Power.",
 	},
-	corrode: {
-		name: "Corrode",
-		desc: "This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Super effective on Steel.",
-	},
 	corrosivegas: {
 		name: "Corrosive Gas",
 		desc: "The target loses its held item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
@@ -1087,11 +1077,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		name: "Darkest Lariat",
 		desc: "Ignores the target's stat stage changes, including evasiveness.",
 		shortDesc: "Ignores the target's stat stage changes.",
-	},
-	darkmatter: {
-		name: "Dark Matter",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
 	},
 	darkpulse: {
 		name: "Dark Pulse",
@@ -1356,11 +1341,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "Raises the user's evasiveness by 1 stage.",
 		shortDesc: "Raises the user's evasiveness by 1.",
 	},
-	dracojet: {
-		name: "Draco Jet",
-		desc: "No additional effect.",
-		shortDesc: "Usually goes first.",
-	},
 	dracometeor: {
 		name: "Draco Meteor",
 		desc: "Lowers the user's Special Attack by 2 stages.",
@@ -1401,11 +1381,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		name: "Dragon Hammer",
 		shortDesc: "No additional effect.",
 	},
-	dragonify: {
-		name: "Dragonify",
-		desc: "Causes the target to become a Dragon type. Fails if the target is an Arceus or a Silvally, or if the target is already purely Dragon type.",
-		shortDesc: "Changes the target's type to Dragon.",
-	},
 	dragonpulse: {
 		name: "Dragon Pulse",
 		shortDesc: "No additional effect.",
@@ -1439,11 +1414,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		gen4: {
 			desc: "The user recovers 1/2 the HP lost by the target, rounded down. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded down.",
 		},
-	},
-	drakonvoice: {
-		name: "Drakon Voice",
-		desc: "No additional effect.",
-		shortDesc: "No additional effect. Hits adjacent Pokemon.",
 	},
 	dreameater: {
 		name: "Dream Eater",
@@ -2679,6 +2649,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		start: "  [POKEMON] was prevented from healing!",
 		end: "  [POKEMON]'s Heal Block wore off!",
 		cant: "[POKEMON] can't use [MOVE] because of Heal Block!",
+		fail: "  But it failed to affect [POKEMON]!",
 	},
 	healingwish: {
 		name: "Healing Wish",
@@ -3120,13 +3091,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "Prevents the user and the target from switching out. The user and the target can still switch out if either of them is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if either the user or the target leaves the field.",
 		shortDesc: "Prevents both user and target from switching out.",
 	},
-	jetstream: {
-		name: "Jet Stream",
-		desc: "Until the end of the next turn, the user's attacks will have priority.",
-		shortDesc: "Boosts priority of user's moves by +1 next turn.",
-
-		start: "  [POKEMON] created a stream of supercharged air!",
-	},
 	judgment: {
 		name: "Judgment",
 		desc: "This move's type depends on the user's held Plate.",
@@ -3381,13 +3345,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		start: "  Lucky Chant shielded [TEAM] from critical hits!",
 		end: "  [TEAM]'s Lucky Chant wore off!",
 	},
-	lunarcannon: {
-		name: "Lunar Cannon",
-		desc: "This attack charges on the first turn and executes on the second. If the user is holding a Power Herb or the weather is New Moon, the move completes in one turn.",
-		shortDesc: "Charges turn 1. Hits turn 2. No charge in darkness.",
-
-		prepare: "  [POKEMON] gathered darkness!",
-	},
 	lunardance: {
 		name: "Lunar Dance",
 		desc: "The user faints and the Pokemon brought out to replace it has its HP and PP fully restored along with having any non-volatile status condition cured. The new Pokemon is sent out at the end of the turn, and the healing happens before hazards take effect. Fails if the user is the last unfainted Pokemon in its party.",
@@ -3632,11 +3589,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		name: "Meditate",
 		desc: "Raises the user's Attack by 1 stage.",
 		shortDesc: "Raises the user's Attack by 1.",
-	},
-	medusaray: {
-		name: "Medusa Ray",
-		desc: "Causes the target to become a Rock type. Fails if the target is an Arceus or a Silvally, or if the target is already purely Rock type.",
-		shortDesc: "Changes the target's type to Rock.",
 	},
 	mefirst: {
 		name: "Me First",
@@ -4002,11 +3954,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "Has a 100% chance to lower the target's Special Attack by 1 stage.",
 		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
 	},
-	nanorepair: {
-		name: "Nanorepair",
-		desc: "The user restores 1/2 of its maximum HP, rounded half up and boosts its defense by 1 stage.",
-		shortDesc: "Heals the user by 50% and raises def by 1.",
-	},
 	nastyplot: {
 		name: "Nasty Plot",
 		desc: "Raises the user's Special Attack by 2 stages.",
@@ -4058,11 +4005,6 @@ export const MovesText: {[k: string]: MoveText} = {
 	neverendingnightmare: {
 		name: "Never-Ending Nightmare",
 		shortDesc: "Power is equal to the base move's Z-Power.",
-	},
-	newmoon: {
-		name: "New Moon",
-		desc: "For 5 turns, the weather becomes New Moon. The damage of Ghost and Dark-type attacks is multiplied by 1.35 and the damage of Fairy-type attacks is multiplied by 0.75 during the effect. Lasts for 8 turns if the user is holding Dark Rock. Fails if the current weather is New Moon.",
-		shortDesc: "For 5 turns, powers up Dark and Ghost moves.",
 	},
 	nightdaze: {
 		name: "Night Daze",
@@ -5290,7 +5232,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	skillswap: {
 		name: "Skill Swap",
-		desc: "The user swaps its Ability with the target's Ability. Fails if either the user or the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Hunger Switch, Ice Face, Illusion, Multitype, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode.",
+		desc: "The user swaps its Ability with the target's Ability. Fails if either the user or the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Hunger Switch, Ice Face, Illusion, Multitype, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Wonder Guard, or Zen Mode.",
 		shortDesc: "The user and the target trade Abilities.",
 		gen7: {
 			desc: "The user swaps its Ability with the target's Ability. Fails if either the user or the target's Ability is Battle Bond, Comatose, Disguise, Illusion, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Wonder Guard, or Zen Mode.",
@@ -5661,15 +5603,6 @@ export const MovesText: {[k: string]: MoveText} = {
 
 		damage: "#roughskin",
 	},
-	spiritaway: {
-		name: "Spirit Away",
-		desc: "This attack takes the target away with the user on the first turn and executes on the second. On the first turn, the user and the target avoid all attacks. The user and the target cannot make a move between turns, but the target can select a move to use. Fails on the first turn if the target has a substitute, or if the target is using Bounce, Dig, Dive, Fly, Phantom Force, Shadow Force, Sky Drop or Spirit Away.",
-		shortDesc: "User and foe disappear turn 1. Damages on turn 2.",
-
-		prepare: "[POKEMON] whisked [TARGET] away!",
-		end: "  [POKEMON] has returned!",
-		failSelect: "Spirit Away won't let [POKEMON] go!",
-	},
 	spiritbreak: {
 		name: "Spirit Break",
 		desc: "Has a 100% chance to lower the target's Special Attack by 1 stage.",
@@ -5735,15 +5668,6 @@ export const MovesText: {[k: string]: MoveText} = {
 
 		start: "#followme",
 		startFromZEffect: "#followme",
-	},
-	stealthcoal: {
-		name: "Stealth Coal",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Fire type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Result of Stealth Rock + Foundry",
-
-		start: "  Hot coals float in the air around [TEAM]!",
-		end: "  The hot coals disappeared from around [TEAM]!",
-		damage: "  Hot coals hurt [POKEMON]!",
 	},
 	stealthrock: {
 		name: "Stealth Rock",
@@ -6777,11 +6701,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 1/4 recoil.",
 	},
-	wildfire: {
-		name: "Wildfire",
-		desc: "Burns the target.",
-		shortDesc: "Burns the foe(s).",
-	},
 	willowisp: {
 		name: "Will-O-Wisp",
 		desc: "Burns the target.",
@@ -6825,11 +6744,6 @@ export const MovesText: {[k: string]: MoveText} = {
 		name: "Work Up",
 		desc: "Raises the user's Attack and Special Attack by 1 stage.",
 		shortDesc: "Raises the user's Attack and Sp. Atk by 1.",
-	},
-	wormhole: {
-		name: "Wormhole",
-		desc: "No additional effect.",
-		shortDesc: "Usually goes first.",
 	},
 	worryseed: {
 		name: "Worry Seed",
