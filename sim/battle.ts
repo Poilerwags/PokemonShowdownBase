@@ -185,7 +185,7 @@ export class Battle {
 
 		this.requestState = '';
 		this.turn = 0;
-		this.wishTurns = 0;
+		this.turns = '';
 		this.midTurn = false;
 		this.started = false;
 		this.ended = false;
