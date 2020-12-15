@@ -2906,8 +2906,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Purple",
 		evos: ["Weezing", "Weezing-Galar"],
 		eggGroups: ["Amorphous"],
-		otherFormes: ["Koffing-Delta"],
-		formeOrder: ["Koffing", "Koffing-Delta"],
 	},
 	weezing: {
 		num: 110,
@@ -2950,7 +2948,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 9.5,
 		heightm: 1,
 		color: "Red",
-		prevo: "Koffing-Delta",
 		evoLevel: 35,
 		eggGroups: ["Undiscovered"],
 	},

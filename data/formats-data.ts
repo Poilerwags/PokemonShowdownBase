@@ -1034,9 +1034,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	koffing: {
 		tier: "LC",
 	},
-	koffingdelta: {
-		tier: "LC",
-	},
 	weezing: {
 		randomBattleMoves: ["fireblast", "painsplit", "sludgebomb", "toxicspikes", "willowisp"],
 		randomBattleLevel: 86,
