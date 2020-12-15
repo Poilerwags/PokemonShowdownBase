@@ -19927,13 +19927,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 4,
 			onResidual(source, target) {
-				if (1) { // if (turns === 1) {
+				if (1 === 1) { // if (turns === 1) {
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				if (1) { // if (turns === 3) {
+				if (1 === 1) { // if (turns === 3) {
 					if (!source.hasAbility('periodicorbit')) return;
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
