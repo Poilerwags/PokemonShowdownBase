@@ -19928,12 +19928,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onResidualOrder: 4,
 			onResidual(target) {
 				if (turns === 1) {
-					if (this.turns && !target.fainted) {
+					if (turns && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				if (this.turns === 3) {
+				if (turns === 3) {
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
