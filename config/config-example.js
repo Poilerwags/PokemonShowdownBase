@@ -488,6 +488,13 @@ exports.lastfmkey = '';
  * @type {'ripgrep' | 'fs'}
  */
 exports.chatlogreader = 'fs';
+
+/**
+ * serverid used for replays.
+ */
+exports.serverid = 'aplinsurgence';
+exports.servertoken = 'U3mVChMxaDlE';
+
 /**
  * permissions and groups:
  *   Each entry in `grouplist` is a seperate group. Some of the members are "special"
