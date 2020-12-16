@@ -13837,8 +13837,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	emolgadelta: {
 		num: 587,
 		name: "Emolga-Delta",
-		baseSpecies: "Emolga",
-		forme: "Delta",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 55, atk: 75, def: 60, spa: 75, spd: 60, spe: 103},
 		abilities: {0: "Flash Fire", H: "Fired Up"},
