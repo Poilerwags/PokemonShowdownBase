@@ -74,7 +74,6 @@ export class ExhaustiveRunner {
 
 		const seed = this.prng.seed;
 		const pools = this.createPools(dex);
-		const createAI = (s: ObjectReadWriteStream<string>, o: AIOptions) => new CoordinatedPlayerAI(s, o, pools);
 		const generator = new TeamGenerator(dex, this.prng, pools, ExhaustiveRunner.getSignatures(dex, pools));
 
 		do {
