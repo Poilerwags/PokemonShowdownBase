@@ -144,7 +144,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			psybeam: ["6L15"],
 			drainingkiss: ["8M", "6L19"],
 			sweetscent: ["6L21"],
-			calmind: ["6M", "6L25"],
+			calmmind: ["6M", "6L25"],
 			disarmingvoice: ["6L27"],
 			psychic: ["6M", "6L31"],
 			moonlight: ["6L33"],
