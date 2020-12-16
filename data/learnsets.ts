@@ -63013,7 +63013,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 6, level: 50, isHidden: true, moves: ["leafstorm", "holdback", "wringout", "gigadrain"], pokeball: "cherishball"},
 		],
 	},
-	sereriordelta: {
+	serperiordelta: {
 		learnset: {
 			dragontail: ["6M", "6L1"],
 			tackle: ["6L1"],
