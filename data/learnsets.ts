@@ -51855,7 +51855,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			agility: ["7L7", "6L7", "5L9", "4L9", "3L16"],
 			aquajet: ["7E", "6E", "5E", "4E"],
 			aquaring: ["7L40", "7E", "6L40", "6E", "5L46", "5E", "4L37", "4E"],
-			attract: ["7M", "7L20", "6M", "6S0", "6L22", "5M", "5L27", "4M", "4L22", "3M", "3L28"],
+			attract: ["7M", "7L20", "6M", "6L22", "6S0", "5M", "5L27", "4M", "4L22", "3M", "3L28"],
 			blizzard: ["7M", "6M", "5M", "4M", "3M"],
 			bounce: ["7T", "6T", "5T", "4T"],
 			brine: ["7E", "6E", "5E", "4M"],
