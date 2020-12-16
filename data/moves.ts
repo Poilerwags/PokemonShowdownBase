@@ -7473,7 +7473,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onModifyAccuracy(accuracy) {
 				if (typeof accuracy !== 'number') return;
-				return this.chainModify([0x1AB8, 0x1000]);
+				return accuracy * 5 / 3;
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
@@ -18632,6 +18632,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onBeforeMovePriority: 6,
 			onBeforeMove(pokemon, target, move) {
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
 				if (!move.isZ && !move.isMax && move.flags['sound']) {
 					this.add('cant', pokemon, 'move: Throat Chop');
 					return false;
