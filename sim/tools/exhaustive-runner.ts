@@ -5,10 +5,8 @@
  * @license MIT
  */
 
-import {ObjectReadWriteStream} from '../../lib/streams';
 import {Dex, toID} from '../dex';
 import {PRNG, PRNGSeed} from '../prng';
-import {AIOptions, Runner} from './runner';
 
 interface Pools {
 	pokemon: Pool;
