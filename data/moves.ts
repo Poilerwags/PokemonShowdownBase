@@ -13069,12 +13069,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		onHit(source, target) {
-			if (source.hasAbility('venomous')) {
-				target.trySetStatus('tox', source);
-			} else {
-				target.trySetStatus('psn', source);
-			}
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (source.hasAbility('venomous')) {
+					target.trySetStatus('tox', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
 		},
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -13108,12 +13111,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 35,
 		priority: 0,
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
-		onHit(source, target) {
-			if (source.hasAbility('venomous')) {
-				target.trySetStatus('tox', source);
-			} else {
-				target.trySetStatus('psn', source);
-			}
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (source.hasAbility('venomous')) {
+					target.trySetStatus('tox', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -18971,12 +18977,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		boosts: {
 			spe: -1,
 		},
-		onHit(source, target) {
-			if (source.hasAbility('venomous')) {
-				target.trySetStatus('tox', source);
-			} else {
-				target.trySetStatus('psn', source);
-			}
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (source.hasAbility('venomous')) {
+					target.trySetStatus('tox', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
 		},
 		secondary: null,
 		target: "normal",
