@@ -978,13 +978,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 					}
 				}
 				if (move.flags['contact']) {
-					source.trySetStatus('psn', target);
+					if (source.hasAbility('venomous')) {
+						source.trySetStatus('tox', target);
+					} else {
+						source.trySetStatus('psn', target);
+					}
 				}
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && move.flags['contact']) {
-					source.trySetStatus('psn', target);
+					if (source.hasAbility('venomous')) {
+						source.trySetStatus('tox', target);
+					} else {
+						source.trySetStatus('psn', target);
+					}
 				}
 			},
 		},
