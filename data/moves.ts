@@ -13069,16 +13069,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			onHit(target, source) {
-				if (source.hasAbility('venomous')) {
-					target.trySetStatus('tox', source);
-				} else {
-					target.trySetStatus('psn', source);
-				}
-			},
-		},
+		status: 'psn',
 		target: "allAdjacentFoes",
 		type: "Poison",
 		zMove: {boost: {def: 1}},
@@ -13110,16 +13101,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 35,
 		priority: 0,
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			onHit(target, source) {
-				if (source.hasAbility('venomous')) {
-					target.trySetStatus('tox', source);
-				} else {
-					target.trySetStatus('psn', source);
-				}
-			},
-		},
+		status: 'psn',
 		target: "normal",
 		type: "Poison",
 		zMove: {boost: {def: 1}},
@@ -18975,16 +18957,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		boosts: {
 			spe: -1,
 		},
-		secondary: {
-			chance: 100,
-			onHit(target, source) {
-				if (source.hasAbility('venomous')) {
-					target.trySetStatus('tox', source);
-				} else {
-					target.trySetStatus('psn', source);
-				}
-			},
-		},
+		status: 'psn',
 		target: "normal",
 		type: "Poison",
 		zMove: {boost: {spe: 1}},
