@@ -13069,10 +13069,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		status: 'psn',
-		onTryHit(move, pokemon, target) {
-			if (pokemon.hasAbility('venomous')) {
-				move.status = 'tox';
+		onHit(source, target) {
+			if (source.hasAbility('venomous')) {
+				source.trySetStatus('tox', target);
+			} else {
+				source.trySetStatus('psn', target);
 			}
 		},
 		secondary: null,
@@ -13107,10 +13108,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 35,
 		priority: 0,
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
-		status: 'psn',
-		onTryHit(move, pokemon, target) {
-			if (pokemon.hasAbility('venomous')) {
-				move.status = 'tox';
+		onHit(source, target) {
+			if (source.hasAbility('venomous')) {
+				source.trySetStatus('tox', target);
+			} else {
+				source.trySetStatus('psn', target);
 			}
 		},
 		secondary: null,
@@ -18966,13 +18968,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		status: 'psn',
 		boosts: {
 			spe: -1,
 		},
-		onTryHit(move, pokemon, target) {
-			if (pokemon.hasAbility('venomous')) {
-				move.status = 'tox';
+		onHit(source, target) {
+			if (source.hasAbility('venomous')) {
+				source.trySetStatus('tox', target);
+			} else {
+				source.trySetStatus('psn', target);
 			}
 		},
 		secondary: null,
