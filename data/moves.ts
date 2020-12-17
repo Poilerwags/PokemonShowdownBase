@@ -13071,9 +13071,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		onHit(source, target) {
 			if (source.hasAbility('venomous')) {
-				source.trySetStatus('tox', target);
+				target.trySetStatus('tox', source);
 			} else {
-				source.trySetStatus('psn', target);
+				target.trySetStatus('psn', source);
 			}
 		},
 		secondary: null,
@@ -13110,9 +13110,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
 		onHit(source, target) {
 			if (source.hasAbility('venomous')) {
-				source.trySetStatus('tox', target);
+				target.trySetStatus('tox', source);
 			} else {
-				source.trySetStatus('psn', target);
+				target.trySetStatus('psn', source);
 			}
 		},
 		secondary: null,
@@ -18973,9 +18973,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onHit(source, target) {
 			if (source.hasAbility('venomous')) {
-				source.trySetStatus('tox', target);
+				target.trySetStatus('tox', source);
 			} else {
-				source.trySetStatus('psn', target);
+				target.trySetStatus('psn', source);
 			}
 		},
 		secondary: null,
