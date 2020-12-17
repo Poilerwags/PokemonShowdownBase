@@ -82,17 +82,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return; // avoid crashing when called from a chat plugin
-			if (target.getMoveHitData(move).typeMod === 0) {
-				return this.chainModify(2);
-			}
-			if (target.getMoveHitData(move).typeMod === -1) {
-				return this.chainModify(4);
-			}
-			if (target.getMoveHitData(move).typeMod === -2) {
-				return this.chainModify(8);
-			}
+		onEffectiveness(typeMod, target, type) {
+			if (type !== 'Ghost') return 1;
 		},
 		secondary: null,
 		target: "normal",
