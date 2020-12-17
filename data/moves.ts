@@ -13062,6 +13062,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'psn',
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.hasAbility('Venomous')) {
+				move.status = 'tox',
+			}
+		},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Poison",
@@ -13095,6 +13100,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
 		status: 'psn',
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.hasAbility('Venomous')) {
+				move.status = 'tox',
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -18951,6 +18961,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		status: 'psn',
 		boosts: {
 			spe: -1,
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.hasAbility('Venomous')) {
+				move.status = 'tox',
+			}
 		},
 		secondary: null,
 		target: "normal",
