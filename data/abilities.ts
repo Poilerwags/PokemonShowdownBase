@@ -474,11 +474,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		condition: {
 			duration: 2,
 			onStart(pokemon) {
-				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length;
+				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length - 1;
 				this.boost({spe: 1, spa: spaBoost}, pokemon);
 			},
 			onEnd(pokemon) {
-				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length;
+				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length - 1;
 				this.boost({spe: -1, spa: -spaBoost}, pokemon);
 			},
 		},
@@ -4815,7 +4815,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
 				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				const boostDur = (fainted.length + 1) - pokemon.activeTurns;
+				const boostDur = fainted.length - pokemon.activeTurns;
 				if (boostDur === 0) {
 					this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
 				}
