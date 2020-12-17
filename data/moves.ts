@@ -82,6 +82,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target, move) {
+			if (target.types.length === 2) return this.chainModify(0.5);
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (type !== 'Ghost') return 1;
 		},
