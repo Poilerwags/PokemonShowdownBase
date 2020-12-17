@@ -13062,7 +13062,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'psn',
-		onModifyMove(move, pokemon, target) {
+		onTryHit(move, pokemon, target) {
 			if (pokemon.hasAbility('venomous')) {
 				move.status = 'tox';
 			}
@@ -13100,7 +13100,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
 		status: 'psn',
-		onModifyMove(move, pokemon, target) {
+		onTryHit(move, pokemon, target) {
 			if (pokemon.hasAbility('venomous')) {
 				move.status = 'tox';
 			}
@@ -18962,7 +18962,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		boosts: {
 			spe: -1,
 		},
-		onModifyMove(move, pokemon, target) {
+		onTryHit(move, pokemon, target) {
 			if (pokemon.hasAbility('venomous')) {
 				move.status = 'tox';
 			}
