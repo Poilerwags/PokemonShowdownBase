@@ -13079,7 +13079,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Poison",
 		zMove: {boost: {def: 1}},
@@ -13121,7 +13120,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Poison",
 		zMove: {boost: {def: 1}},
@@ -18987,7 +18985,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Poison",
 		zMove: {boost: {spe: 1}},
