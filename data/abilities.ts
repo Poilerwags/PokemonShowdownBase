@@ -150,15 +150,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.type === 'Normal' || move.type === 'Dragon') return;
 			return this.chainModify(1.5);
 		},
-		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
-				this.debug('Ancient Presence boost');
-				target.getMoveHitData(move).typeMod = 0;
-			}
-			if (target.getMoveHitData(move).typeMod > 0) {
-				this.debug('Ancient Presence boost');
-				target.getMoveHitData(move).typeMod = 0;
-			}
+		onEffectiveness(typeMod, target, type) {
+			return 0;
 		},
 		name: "Ancient Presence",
 		rating: 2,

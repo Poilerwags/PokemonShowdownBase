@@ -11959,7 +11959,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Arceus-Primal",
 		baseSpecies: "Arceus-Pre-Primal",
 		forme: "Primal",
-		types: ["Normal"],
+		types: ["Normal", "Dragon"],
 		gender: "N",
 		baseStats: {hp: 120, atk: 145, def: 135, spa: 145, spd: 135, spe: 140},
 		abilities: {0: "Ancient Presence"},
