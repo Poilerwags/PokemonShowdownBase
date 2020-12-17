@@ -19887,7 +19887,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'brn',
-		onHit(pokemon, source) {
+		onHit(target, source) {
 			if (target.hasType('Grass')) {
 				for (const pokemon of target.side.pokemon) {
 					if (pokemon.runEffectiveness('Fire') === 1) {
