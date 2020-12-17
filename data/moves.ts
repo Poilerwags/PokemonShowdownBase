@@ -19890,7 +19890,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source) {
 			if (target.hasType('Grass')) {
 				for (const pokemon of target.side.pokemon) {
-					if (pokemon.runEffectiveness('wildfire') === 1) {
+					const fire = this.dex.getActiveMove('Wildfire');
+					if (this.clampIntRange(pokemon.runEffectiveness(fire), -6, 6); === 1) {
 						source.trySetStatus('brn', pokemon);
 					}
 				}
