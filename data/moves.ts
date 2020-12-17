@@ -13063,7 +13063,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'psn',
 		onModifyMove(move, pokemon, target) {
-			if (pokemon.hasAbility('Venomous')) {
+			if (pokemon.hasAbility('venomous')) {
 				move.status = 'tox',
 			}
 		},
@@ -13101,7 +13101,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
 		status: 'psn',
 		onModifyMove(move, pokemon, target) {
-			if (pokemon.hasAbility('Venomous')) {
+			if (pokemon.hasAbility('venomous')) {
 				move.status = 'tox',
 			}
 		},
@@ -18963,7 +18963,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			spe: -1,
 		},
 		onModifyMove(move, pokemon, target) {
-			if (pokemon.hasAbility('Venomous')) {
+			if (pokemon.hasAbility('venomous')) {
 				move.status = 'tox',
 			}
 		},
