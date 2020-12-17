@@ -1943,7 +1943,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					move.ignoreImmunity['Fighting'] = true;
 					move.ignoreImmunity['Normal'] = true;
 				}
-				if (!target?.hasAbility('levitate') && !target?.hasItem('airballoon')) {
+				if (target.volatiles['magnetrise']) {
+					continue;
+				} else if (!target?.hasAbility('levitate') && !target?.hasItem('airballoon')) {
 					move.ignoreImmunity['Ground'] = true;
 				}
 			}
