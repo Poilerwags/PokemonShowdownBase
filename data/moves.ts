@@ -13064,7 +13064,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		status: 'psn',
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.hasAbility('venomous')) {
-				move.status = 'tox',
+				move.status = 'tox';
 			}
 		},
 		secondary: null,
@@ -13102,7 +13102,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		status: 'psn',
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.hasAbility('venomous')) {
-				move.status = 'tox',
+				move.status = 'tox';
 			}
 		},
 		secondary: null,
@@ -18964,7 +18964,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.hasAbility('venomous')) {
-				move.status = 'tox',
+				move.status = 'tox';
 			}
 		},
 		secondary: null,
