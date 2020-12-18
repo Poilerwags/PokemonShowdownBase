@@ -1733,7 +1733,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (typeof accuracy !== 'number') return;
 			if (this.field.isWeather('newmoon')) {
 				this.debug('Illuminate - decreasing accuracy');
-				return accuracy * 0.8;
+				return accuracy * 0.75;
 			}
 		},
 		rating: 0,
