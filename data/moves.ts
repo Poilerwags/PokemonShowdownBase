@@ -19746,6 +19746,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'hail':
 				move.type = 'Ice';
 				break;
+			case 'newmoon':
+				move.type = 'Dark';
+				break;
 			}
 		},
 		onModifyMove(move, pokemon) {
@@ -19762,6 +19765,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.basePower *= 2;
 				break;
 			case 'hail':
+				move.basePower *= 2;
+				break;
+			case 'newmoon':
 				move.basePower *= 2;
 				break;
 			}
