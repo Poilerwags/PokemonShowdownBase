@@ -829,7 +829,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						this.debug('Aurora Veil weaken');
 						if (target.side.active.length > 1) {
 							if (this.field.isWeather(['newmoon'])) {
-								return this.chainmodify([8, 15]);
+								return this.chainModify([8, 15]);
 							} else {
 								return this.chainModify([0xAAC, 0x1000]);
 							}
@@ -9908,7 +9908,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						this.debug('Light Screen weaken');
 						if (target.side.active.length > 1) {
 							if (this.field.isWeather(['newmoon'])) {
-								return this.chainmodify([8, 15]);
+								return this.chainModify([8, 15]);
 							} else {
 								return this.chainModify([0xAAC, 0x1000]);
 							}
@@ -14296,7 +14296,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 						this.debug('Reflect weaken');
 						if (target.side.active.length > 1) {
 							if (this.field.isWeather(['newmoon'])) {
-								return this.chainmodify([8, 15]);
+								return this.chainModify([8, 15]);
 							} else {
 								return this.chainModify([0xAAC, 0x1000]);
 							}
