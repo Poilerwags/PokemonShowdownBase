@@ -3579,19 +3579,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 144,
 	},
 	regurgitation: {
-		onHit(source, target, move) {
+		onAfterMoveSecondary(target, source, move) {
 			if (source.baseSpecies.baseSpecies !== 'Muk') return;
 			if (move.category === 'Status') return;
-			const newMove = this.dex.getActiveMove('tackle');
-			newMove.category = move.category;
-			newMove.accuracy = true;
-			if (source.species.id === 'mukdeltawater') newMove.type = 'Water';
-			if (source.species.id === 'mukdeltagrass') newMove.type = 'Grass';
-			if (source.species.id === 'mukdeltafire') newMove.type = 'Fire';
-			if (source.species.id === 'mukdeltadark') newMove.type = 'Dark';
-			if (source.species.id === 'mukdeltanormal') newMove.type = 'Normal';
-			if (source.species.id === 'mukdeltapsychic') newMove.type = 'Psychic';
-			this.useMove(newMove, target, source);
+			const regurgMove = this.dex.getActiveMove('tackle');
+			regurgMove.category = move.category;
+			regurgMove.accuracy = true;
+			regurgMove.name = "Regurgitation";
+			if (source.species.id === 'mukdeltawater') regurgMove.type = 'Water';
+			if (source.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
+			if (source.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
+			if (source.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
+			if (source.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
+			if (source.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
+			this.useMove(regurgMove, target, source);
 			return null;
 		},
 		name: "Regurgitation",
