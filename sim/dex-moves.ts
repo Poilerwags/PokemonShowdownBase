@@ -267,7 +267,7 @@ export interface ActiveMove extends MutableMove {
 	readonly id: ID;
 	num: number;
 	weather?: ID;
-	status?: string;
+	status?: ID;
 	hit: number;
 	moveHitData?: MoveHitData;
 	ability?: Ability;
