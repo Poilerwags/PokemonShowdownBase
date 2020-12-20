@@ -2033,6 +2033,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onPrepareHit(pokemon, target, move) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Hydreigon') return;
 			let n = 1;
 			if (pokemon.species.id === 'hydreigonmega') n = 5;
 			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
@@ -2049,6 +2050,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Hydreigon') return;
 			let n = 1;
 			if (pokemon.species.id === 'hydreigonmega') n = 5;
 			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
@@ -2059,6 +2061,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.multihitType === 'lernean') return this.chainModify(multiplier);
 		},
 		onModifyMove(move, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Hydreigon') return;
 			let n = 1;
 			if (pokemon.species.id === 'hydreigonmega') n = 5;
 			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
@@ -3522,37 +3525,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 144,
 	},
 	regurgitation: {
-		onPrepareHit(source, target, move) {
-			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
-			if (['iceball', 'rollout'].includes(move.id)) return;
-			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
-				move.multihit = 2;
-				move.multihitType = 'regurgitation';
-			}
-		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon) {
-			if (move.multihitType === 'regurgitation' && move.hit > 1) {
-				if (pokemon.species.name === 'Muk-Delta-W') {
-					move.type = 'Water';
-				} else if (pokemon.species.name === 'Muk-Delta-G') {
-					move.type = 'Grass';
-				} else if (pokemon.species.name === 'Muk-Delta-F') {
-					move.type = 'Grass';
-				} else if (pokemon.species.name === 'Muk-Delta-D') {
-					move.type = 'Grass';
-				} else if (pokemon.species.name === 'Muk-Delta-N') {
-					move.type = 'Grass';
-				} else {
-					move.type = 'Psychic';
-				}
-			}
-		},
-		onBasePowerPriority: 7,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'regurgitation' && move.hit > 1) {
-				move.basePower = 40;
-			}
+		onHit(source, target, move) {
+			if (source.baseSpecies.baseSpecies !== 'Muk') return;
+			const newMove = this.dex.getActiveMove('tackle');
+			newMove.category = move.catgory;
+			newMove.accuracy = true;
+			if (source.species.id === 'mukdeltawater') newMove.type = 'Water';
+			if (source.species.id === 'mukdeltagrass') newMove.type = 'Grass';
+			if (source.species.id === 'mukdeltafire') newMove.type = 'Fire';
+			if (source.species.id === 'mukdeltadark') newMove.type = 'Dark';
+			if (source.species.id === 'mukdeltanormal') newMove.type = 'Normal';
+			if (source.species.id === 'mukdeltapsychic') newMove.type = 'Psychic';
+			this.useMove(newMove, target, source);
+			return null;
 		},
 		name: "Regurgitation",
 		rating: 3,
