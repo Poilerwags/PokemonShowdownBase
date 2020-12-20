@@ -416,7 +416,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (source.species.id !== 'emolgadeltafired') return;
+			if (target.species.id !== 'emolgadeltafired') return;
 			if (move.flags['contact']) {
 				if (this.randomChance(1, 10)) {
 					source.trySetStatus('brn', target);
