@@ -19925,7 +19925,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				for (const pokemon of target.side.pokemon) {
 					const fire = this.dex.getActiveMove('Wildfire');
 					if (this.clampIntRange(pokemon.runEffectiveness(fire), -6, 6) === 1) {
-						source.trySetStatus('brn', pokemon);
+						source.trySetStatus('brn', target);
 					}
 				}
 			}
