@@ -95,7 +95,7 @@ export class BasicEffect implements EffectData {
 	/** Whether or not the condition affects fainted Pokemon. */
 	affectsFainted: boolean;
 	/** Moves only: what status does it set? */
-	status?: string;
+	status?: ID;
 	/** Moves only: what weather does it set? */
 	weather?: ID;
 	/** ??? */

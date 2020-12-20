@@ -4885,12 +4885,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!move.secondaries) move.secondaries = [];
 			for (const secondary of move.secondaries) {
 				if (secondary.status === 'psn') {
-					move.status = 'tox';
+					move.secondaries.push({
+						status: 'tox',
+					});
 				}
 			}
-			if (move.status && move.status === 'psn') {
+		},
+		onTryHit(target, source, move) {
+			if (move.status === 'psn') {
 				move.status = 'tox';
-			}
+			};
 		},
 		name: "Venomous",
 		rating: 2,
