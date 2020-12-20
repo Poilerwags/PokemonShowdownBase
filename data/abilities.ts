@@ -2018,18 +2018,22 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.species.id === 'hydreigonmeganine') return;
 			if (pokemon.hp < (pokemon.maxhp / 5)) {
 				pokemon.formeChange('Hydreigon-Mega-Nine', this.effect, true);
+				return;
 			}
 			if (pokemon.species.id === 'hydreigonmegaeight') return;
 			if (pokemon.hp < (2 * pokemon.maxhp / 5)) {
 				pokemon.formeChange('Hydreigon-Mega-Eight', this.effect, true);
+				return;
 			}
 			if (pokemon.species.id === 'hydreigonmegaseven') return;
 			if (pokemon.hp < (3 * pokemon.maxhp / 5)) {
 				pokemon.formeChange('Hydreigon-Mega-Seven', this.effect, true);
+				return;
 			}
 			if (pokemon.species.id === 'hydreigonmegasix') return;
 			if (pokemon.hp < (4 * pokemon.maxhp / 5)) {
 				pokemon.formeChange('Hydreigon-Mega-Six', this.effect, true);
+				return;
 			}
 		},
 		onPrepareHit(pokemon, target, move) {
