@@ -703,7 +703,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			if (move.auraBooster !== this.effectData.target) return;
-			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
+			if (this.field.isWeather('newmoon')) {
+				return this.chainModify([move.hasAuraBreak ? 0.6 : 5, 3]);
+			} else {
+				return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
+			}
 		},
 		isUnbreakable: true,
 		name: "Dark Aura",
