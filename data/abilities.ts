@@ -4891,7 +4891,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 			if (move.status && move.status === 'psn') {
-				return move.status = 'tox';
+				move.status = 'tox';
 			}
 		},
 		name: "Venomous",
