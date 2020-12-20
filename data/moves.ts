@@ -988,7 +988,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					}
 				}
 				if (move.flags['contact']) {
-					if (source.hasAbility('venomous')) {
+					if (target.hasAbility('venomous')) {
 						source.trySetStatus('tox', target);
 					} else {
 						source.trySetStatus('psn', target);

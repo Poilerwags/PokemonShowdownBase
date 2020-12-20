@@ -4876,7 +4876,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!move.secondaries) move.secondaries = [];
 			for (const secondary of move.secondaries) {
 				if (secondary.status === 'psn') {
+					toxChance = secondary.chance;
+					seconday.chance = 0;
 					move.secondaries.push({
+						chance: toxChance,
 						status: 'tox',
 					});
 				}
