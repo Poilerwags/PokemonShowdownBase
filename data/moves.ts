@@ -19984,13 +19984,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 4,
 			onResidual(target, move) {
-				if (this.effectData.stage = 1) {
+				if (this.effectData.stage === 1) {
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 					}
 				}
-				if (this.effectData.stage = 3) {
+				if (this.effectData.stage === 3) {
 					if (target && !target.fainted) {
 						const damage = this.heal(this.effectData.hp, target, target);
 						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
