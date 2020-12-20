@@ -19976,29 +19976,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		slotCondition: 'Wish',
-		condition: {
-			duration: 2,
-			onStart(pokemon, source) {
-				this.effectData.stage = 0;
-				this.effectData.hp = source.maxhp / 2;
-			},
-			onResidualOrder: 4,
-			onResidual(target, source) {
-				if (this.effectData.stage === 1) {
-					if (target && !target.fainted) {
-						const damage = this.heal(this.effectData.hp, target, target);
-						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
-					}
+		onHit(pokemon, source) {
+			this.effectData.stage = 0;
+			this.effectData.hp = source.maxhp / 2;
+		},
+		onResidualOrder: 4,
+		onResidual(target, source) {
+			if (this.effectData.stage === 1) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectData.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 				}
-				if (this.effectData.stage === 3) {
-					if (!source?.hasAbility('periodicorbit')) return;
-					if (target && !target.fainted) {
-						const damage = this.heal(this.effectData.hp, target, target);
-						if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
-					}
+			}
+			if (this.effectData.stage === 3) {
+				if (!source?.hasAbility('periodicorbit')) return;
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectData.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
 				}
-				this.effectData.stage++;
-			},
+			}
+			this.effectData.stage++;
 		},
 		secondary: null,
 		target: "self",
