@@ -14953,8 +14953,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Zweilous",
 		evoLevel: 64,
 		eggGroups: ["Dragon"],
-		otherFormes: ["Hydreigon-Delta", "Hydreigon-Mega"],
-		formeOrder: ["Hydreigon", "Hydreigon-Delta", "Hydreigon-Mega"],
+		otherFormes: [
+			"Hydreigon-Delta", "Hydreigon-Mega", "Hydreigon-Mega-Six", "Hydreigon-Mega-Seven", "Hydreigon-Mega-Eight", "Hydreigon-Mega-Nine",
+		],
+		formeOrder: [
+			"Hydreigon", "Hydreigon-Delta", "Hydreigon-Mega", "Hydreigon-Mega-Six", "Hydreigon-Mega-Seven", "Hydreigon-Mega-Eight", "Hydreigon-Mega-Nine",
+		],
 	},
 	hydreigondelta: {
 		num: 635,
