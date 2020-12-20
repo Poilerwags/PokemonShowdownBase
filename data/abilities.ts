@@ -4894,7 +4894,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onTryHit(target, source, move) {
 			if (move.status === 'psn') {
 				move.status = 'tox';
-			};
+			}
 		},
 		name: "Venomous",
 		rating: 2,
