@@ -3533,7 +3533,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const regurgMove = this.dex.getActiveMove('tackle');
 			regurgMove.category = move.category;
 			regurgMove.accuracy = true;
-			regurgMove.name = "Regurgitation",
+			regurgMove.name = "Regurgitation";
 			if (source.species.id === 'mukdeltawater') regurgMove.type = 'Water';
 			if (source.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
 			if (source.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
