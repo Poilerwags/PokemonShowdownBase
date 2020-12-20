@@ -3247,7 +3247,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Electric' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega-J');
@@ -3255,7 +3255,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Fire' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega-F');
@@ -3263,7 +3263,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Psychic' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega-E');
@@ -3271,7 +3271,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Dark' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega-U');
@@ -3279,7 +3279,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Grass' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega-L');
@@ -3287,7 +3287,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Ice' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega-G');
@@ -3295,7 +3295,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Fairy' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega-S');
@@ -3303,7 +3303,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			} else if (type === 'Normal' && attacker.getTypes().join() !== type) {
 				attacker.formeChange('Eevee-Mega');
@@ -3311,7 +3311,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP * (pokemon.hp / pokemon.maxhp);
+				pokemon.hp = Math.floor(newMaxHP * (pokemon.hp / pokemon.maxhp));
 				pokemon.maxhp = newMaxHP;
 			}
 		},
