@@ -4877,6 +4877,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					});
 				}
 			}
+			const toxStatus = this.dex.getActiveMove('toxic').status;
+			if (move.status && move.status === 'psn') {
+				move.status = toxStatus;
+			}
 		},
 		name: "Venomous",
 		rating: 2,
