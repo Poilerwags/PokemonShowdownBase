@@ -2492,7 +2492,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 30,
 		heightm: 1,
 		color: "Red",
-		evos: ["Muk-Delta"],
+		evos: [
+			"Muk-Delta", "Muk-Delta-Water", "Muk-Delta-Grass", "Muk-Delta-Fire", "Muk-Delta-Dark", "Muk-Delta-Normal", "Muk-Delta-Psychic",
+		],
 		eggGroups: ["Amorphous"],
 	},
 	muk: {
