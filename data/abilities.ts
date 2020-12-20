@@ -3527,9 +3527,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	regurgitation: {
 		onHit(source, target, move) {
 			if (source.baseSpecies.baseSpecies !== 'Muk') return;
+			if (move.category === 'Status') return;
 			const newMove = this.dex.getActiveMove('tackle');
 			newMove.category = move.category;
 			newMove.accuracy = true;
+			if (move.flags['contact']) newMove.flags['contact'] = true;
 			if (source.species.id === 'mukdeltawater') newMove.type = 'Water';
 			if (source.species.id === 'mukdeltagrass') newMove.type = 'Grass';
 			if (source.species.id === 'mukdeltafire') newMove.type = 'Fire';
