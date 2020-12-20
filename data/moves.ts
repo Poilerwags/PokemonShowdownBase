@@ -6363,7 +6363,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 					} else if (result === 1) {
 						pokemon.trySetStatus('par', source);
 					} else {
-						pokemon.trySetStatus('psn', source);
+						if (source.hasAbility('venomous')) {
+							pokemon.trySetStatus('tox', source);
+						} else {
+							pokemon.trySetStatus('psn', source);
+						}
 					}
 				}
 			},
@@ -6683,7 +6687,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.side.foe.active) {
-					pokemon.trySetStatus('psn', source);
+					if (source.hasAbility('venomous')) {
+						pokemon.trySetStatus('tox', source);
+					} else {
+						pokemon.trySetStatus('psn', source);
+					}
 				}
 			},
 		},
@@ -6944,7 +6952,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 					if (result === 0) {
 						pokemon.trySetStatus('par', source);
 					} else {
-						pokemon.trySetStatus('psn', source);
+						if (source.hasAbility('venomous')) {
+							pokemon.trySetStatus('tox', source);
+						} else {
+							pokemon.trySetStatus('psn', source);
+						}
 					}
 				}
 			},
