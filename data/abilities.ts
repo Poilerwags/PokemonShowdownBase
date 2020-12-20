@@ -416,7 +416,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (source.species.name !== 'Emolga-Delta-Fired') return;
+			if (source.species.id !== 'emolgadeltafired') return;
 			if (move.flags['contact']) {
 				if (this.randomChance(1, 10)) {
 					source.trySetStatus('brn', target);
@@ -2012,19 +2012,33 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 102,
 	},
 	lernean: {
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Hydreigon' || !pokemon.hp) return;
+			if (pokemon.species.id === 'hydreigonmeganine') return;
+			if (pokemon.hp < (pokemon.maxhp / 5)) {
+				pokemon.formeChange('Hydreigon-Mega-Nine', this.effect, true);
+			}
+			if (pokemon.species.id === 'hydreigonmegaeight') return;
+			if (pokemon.hp < (2 * pokemon.maxhp / 5)) {
+				pokemon.formeChange('Hydreigon-Mega-Eight', this.effect, true);
+			}
+			if (pokemon.species.id === 'hydreigonmegaseven') return;
+			if (pokemon.hp < (3 * pokemon.maxhp / 5)) {
+				pokemon.formeChange('Hydreigon-Mega-Seven', this.effect, true);
+			}
+			if (pokemon.species.id === 'hydreigonmegasix') return;
+			if (pokemon.hp < (4 * pokemon.maxhp / 5)) {
+				pokemon.formeChange('Hydreigon-Mega-Six', this.effect, true);
+			}
+		},
 		onPrepareHit(source, target, move) {
 			let n = 1;
-			if (source.hp <= 0.2 * source.maxhp) {
-				n = 9;
-			} else if (source.hp <= 0.4 * source.maxhp) {
-				n = 8;
-			} else if (source.hp <= 0.6 * source.maxhp) {
-				n = 7;
-			} else if (source.hp <= 0.8 * source.maxhp) {
-				n = 6;
-			} else {
-				n = 5;
-			}
+			if (pokemon.species.id === 'hydreigonmega') n = 5;
+			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
+			if (pokemon.species.id === 'hydreigonmegaseven') n = 7;
+			if (pokemon.species.id === 'hydreigonmegaeight') n = 8;
+			if (pokemon.species.id === 'hydreigonmeganine') n = 9;
 			if (['iceball', 'rollout', 'dragonrage', 'sonicboom', 'naturalgift', 'fling', 'seismictoss'].includes(move.id)) return;
 			if (move.category !== 'Status' &&
 				!move.selfdestruct && !move.multihit && !move.flags['charge'] && !move.spreadHit && !move.isZ
@@ -2036,37 +2050,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 8,
 		onBasePower(basePower, pokemon, target, move) {
 			let n = 1;
-			if (pokemon.hp <= 0.2 * pokemon.maxhp) {
-				n = 9;
-			} else if (pokemon.hp <= 0.4 * pokemon.maxhp) {
-				n = 8;
-			} else if (pokemon.hp <= 0.6 * pokemon.maxhp) {
-				n = 7;
-			} else if (pokemon.hp <= 0.8 * pokemon.maxhp) {
-				n = 6;
-			} else {
-				n = 5;
-			}
+			if (pokemon.species.id === 'hydreigonmega') n = 5;
+			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
+			if (pokemon.species.id === 'hydreigonmegaseven') n = 7;
+			if (pokemon.species.id === 'hydreigonmegaeight') n = 8;
+			if (pokemon.species.id === 'hydreigonmeganine') n = 9;
 			const multiplier = (((0.075 * (n - 3)) * (n - move.hit)) / (0.5 * (n - 1)) + 1) / n;
 			if (move.multihitType === 'lernean') return this.chainModify(multiplier);
 		},
 		onModifyMove(move, source) {
 			let n = 1;
-			if (source.hp <= 0.2 * source.maxhp) {
-				n = 9;
-			} else if (source.hp <= 0.4 * source.maxhp) {
-				n = 8;
-			} else if (source.hp <= 0.6 * source.maxhp) {
-				n = 7;
-			} else if (source.hp <= 0.8 * source.maxhp) {
-				n = 6;
-			} else {
-				n = 5;
-			}
+			if (pokemon.species.id === 'hydreigonmega') n = 5;
+			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
+			if (pokemon.species.id === 'hydreigonmegaseven') n = 7;
+			if (pokemon.species.id === 'hydreigonmegaeight') n = 8;
+			if (pokemon.species.id === 'hydreigonmeganine') n = 9;
 			if (move.secondaries) {
 				this.debug('balancing secondary chance');
 				for (const secondary of move.secondaries) {
-					if (secondary.chance && move.hit === n) {
+					if (secondary.chance && move.hit === (n - 1)) {
 						secondary.chance *= 1;
 					} else {
 						secondary.chance = 0;
@@ -4889,11 +4891,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						status: 'tox',
 					});
 				}
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.status === 'psn') {
-				move.status = 'tox';
 			}
 		},
 		name: "Venomous",
