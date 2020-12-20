@@ -14373,8 +14373,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
 	},
-	regurgitation: {
-		num: 33,
+	regurgAttack: {
+		num: 828,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",

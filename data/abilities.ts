@@ -3586,7 +3586,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAfterMoveSecondary(target, source, move) {
 			if (source.baseSpecies.baseSpecies !== 'Muk') return;
 			if (move.category === 'Status') return;
-			const regurgMove = this.dex.getActiveMove('regurgitation');
+			const regurgMove = this.dex.getActiveMove('regurgitationattack');
 			regurgMove.category = move.category;
 			regurgMove.accuracy = true;
 			if (source.species.id === 'mukdeltawater') regurgMove.type = 'Water';
