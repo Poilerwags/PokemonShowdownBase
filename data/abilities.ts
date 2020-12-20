@@ -2032,7 +2032,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.formeChange('Hydreigon-Mega-Six', this.effect, true);
 			}
 		},
-		onPrepareHit(source, target, move) {
+		onPrepareHit(pokemon, target, move) {
 			let n = 1;
 			if (pokemon.species.id === 'hydreigonmega') n = 5;
 			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
@@ -2058,7 +2058,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const multiplier = (((0.075 * (n - 3)) * (n - move.hit)) / (0.5 * (n - 1)) + 1) / n;
 			if (move.multihitType === 'lernean') return this.chainModify(multiplier);
 		},
-		onModifyMove(move, source) {
+		onModifyMove(move, pokemon) {
 			let n = 1;
 			if (pokemon.species.id === 'hydreigonmega') n = 5;
 			if (pokemon.species.id === 'hydreigonmegasix') n = 6;
