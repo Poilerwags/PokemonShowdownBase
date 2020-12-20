@@ -262,9 +262,9 @@ interface MoveHitData {
 
 type MutableMove = BasicEffect & MoveData;
 export interface ActiveMove extends MutableMove {
-	readonly name: string;
 	readonly effectType: 'Move';
 	readonly id: ID;
+	name: string;
 	num: number;
 	weather?: ID;
 	status?: ID;
