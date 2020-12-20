@@ -2714,62 +2714,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 12,
 	},
 	omnitype: {
-		onSwap(pokemon) {
-			if (!pokemon.hasType('Bug')) {
-				this.add('-start', pokemon, 'typeadd', 'Bug', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Dark')) {
-				this.add('-start', pokemon, 'typeadd', 'Dark', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Dragon')) {
-				this.add('-start', pokemon, 'typeadd', 'Dragon', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Electric')) {
-				this.add('-start', pokemon, 'typeadd', 'Electric', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Fairy')) {
-				this.add('-start', pokemon, 'typeadd', 'Fairy', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Fighting')) {
-				this.add('-start', pokemon, 'typeadd', 'Fighting', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Fire')) {
-				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Flying')) {
-				this.add('-start', pokemon, 'typeadd', 'Flying', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Ghost')) {
-				this.add('-start', pokemon, 'typeadd', 'Ghost', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Grass')) {
-				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Ground')) {
-				this.add('-start', pokemon, 'typeadd', 'Ground', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Ice')) {
-				this.add('-start', pokemon, 'typeadd', 'Ice', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Normal')) {
-				this.add('-start', pokemon, 'typeadd', 'Normal', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Poison')) {
-				this.add('-start', pokemon, 'typeadd', 'Poison', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Psychic')) {
-				this.add('-start', pokemon, 'typeadd', 'Psychic', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Rock')) {
-				this.add('-start', pokemon, 'typeadd', 'Rock', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Steel')) {
-				this.add('-start', pokemon, 'typeadd', 'Steel', '[from] ability: Omnitype', '[silent]');
-			}
-			if (!pokemon.hasType('Water')) {
-				this.add('-start', pokemon, 'typeadd', 'Water', '[from] ability: Omnitype', '[silent]');
-			}
-		},
 		name: "Omnitype",
 		rating: 3,
 		num: 305,
