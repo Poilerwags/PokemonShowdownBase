@@ -3528,7 +3528,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onHit(source, target, move) {
 			if (source.baseSpecies.baseSpecies !== 'Muk') return;
 			const newMove = this.dex.getActiveMove('tackle');
-			newMove.category = move.catgory;
+			newMove.category = move.category;
 			newMove.accuracy = true;
 			if (source.species.id === 'mukdeltawater') newMove.type = 'Water';
 			if (source.species.id === 'mukdeltagrass') newMove.type = 'Grass';
