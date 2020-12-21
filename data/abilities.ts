@@ -704,7 +704,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			if (move.auraBooster !== this.effectData.target) return;
 			if (this.field.isWeather('newmoon')) {
-				return this.chainModify([move.hasAuraBreak ? 3, 5 : 5, 3]);
+				return this.chainModify([move.hasAuraBreak ? 0.6 : 5, 3]);
 			} else {
 				return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 			}
