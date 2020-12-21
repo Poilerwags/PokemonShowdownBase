@@ -1937,6 +1937,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			poweruppunch: ["6M"],
 			uturn: ["6M"],
 			substitute: ["6M"],
+			flashcannon: ["6M"],
 			smackdown: ["6M"],
 			sleeptalk: ["6M"],
 			avalanche: ["6M"],
