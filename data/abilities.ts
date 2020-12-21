@@ -2790,14 +2790,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			const statusImmune ['par', 'frz', 'brn', 'psn', 'tox'];
+			const statusImmune = ['par', 'frz', 'brn', 'psn', 'tox'];
 			if (statusImmune.includes(pokemon.status)) {
 				this.add('-activate', pokemon, 'ability: Omnitype');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			const statusImmune ['par', 'frz', 'brn', 'psn', 'tox'];
+			const statusImmune = ['par', 'frz', 'brn', 'psn', 'tox'];
 			if (!statusImmune.include(status.id)) return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Omnitype');
