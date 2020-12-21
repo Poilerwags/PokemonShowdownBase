@@ -6245,7 +6245,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 7,
 		isNonstandard: "Past",
 	},
-	sunfloritem: {
+	sunfloritef: {
 		name: "Sunflorite-F",
 		spritenum: 625,
 		megaStone: "Sunflora-F-Mega",
