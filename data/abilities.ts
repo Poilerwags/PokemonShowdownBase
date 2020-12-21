@@ -3641,7 +3641,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
 			if (pokemon.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
 			if (pokemon.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
-			this.useMove(regurgMove, target, source);
+			this.useMove(regurgMove, target, pokemon);
 			return null;
 		},
 		name: "Regurgitation",
