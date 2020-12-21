@@ -6263,8 +6263,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sunflorite-M",
 		spritenum: 625,
 		megaStone: "Sunflora-M-Mega",
-		megaEvolves: "Sunflora-M",
-		itemUser: ["Sunflora-M"],
+		megaEvolves: "Sunflora",
+		itemUser: ["Sunflora"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;

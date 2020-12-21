@@ -31031,7 +31031,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			corrosivegas: ["8T"],
 		},
 	},
-	sunfloram: {
+	sunflora: {
 		learnset: {
 			absorb: ["7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
 			afteryou: ["7T", "6T", "5T"],

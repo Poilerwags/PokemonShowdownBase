@@ -1019,7 +1019,7 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	sunkerndelta: {
 		name: "Sunkern-Delta",
 	},
-	sunfloram: {
+	sunflora: {
 		name: "Sunflora-M",
 	},
 	sunfloraf: {
