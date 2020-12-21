@@ -854,6 +854,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	mukdelta: {
 		tier: "RU",
 	},
+	mukdeltawater: {
+		tier: "RU",
+	},
+	mukdeltagrass: {
+		tier: "RU",
+	},
+	mukdeltafire: {
+		tier: "RU",
+	},
+	mukdeltadark: {
+		tier: "RU",
+	},
+	mukdeltanormal: {
+		tier: "RU",
+	},
+	mukdeltapsychic: {
+		tier: "RU",
+	},
 	mukalola: {
 		isNonstandard: "Past",
 		tier: "UU",

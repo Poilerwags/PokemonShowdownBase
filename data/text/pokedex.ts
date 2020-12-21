@@ -521,6 +521,24 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	mukdelta: {
 		name: "Muk-Delta",
 	},
+	mukdeltawater: {
+		name: "Muk-Delta-Water",
+	},
+	mukdeltagrass: {
+		name: "Muk-Delta-Grass",
+	},
+	mukdeltafire: {
+		name: "Muk-Delta-Fire",
+	},
+	mukdeltadark: {
+		name: "Muk-Delta-Dark",
+	},
+	mukdeltanormal: {
+		name: "Muk-Delta-Normal",
+	},
+	mukdeltapsychic: {
+		name: "Muk-Delta-Psychic",
+	},
 	shellder: {
 		name: "Shellder",
 	},
@@ -1001,11 +1019,17 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	sunkerndelta: {
 		name: "Sunkern-Delta",
 	},
-	sunflora: {
-		name: "Sunflora",
+	sunfloram: {
+		name: "Sunflora-M",
 	},
-	sunfloramega: {
-		name: "Sunflora-Mega",
+	sunfloraf: {
+		name: "Sunflora-F",
+	},
+	sunflorammega: {
+		name: "Sunflora-M-Mega",
+	},
+	sunflorafmega: {
+		name: "Sunflora-F-Mega",
 	},
 	sunfloradelta: {
 		name: "Sunflora-Delta",

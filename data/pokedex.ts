@@ -2509,12 +2509,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Grimer",
 		evoLevel: 38,
 		eggGroups: ["Amorphous"],
-		otherFormes: [
-			"Muk-Alola", "Muk-Delta", "Muk-Delta-Water", "Muk-Delta-Grass", "Muk-Delta-Fire", "Muk-Delta-Dark", "Muk-Delta-Normal", "Muk-Delta-Psychic",
-		],
-		formeOrder: [
-			"Muk", "Muk-Alola", "Muk-Delta", "Muk-Delta-Water", "Muk-Delta-Grass", "Muk-Delta-Fire", "Muk-Delta-Dark", "Muk-Delta-Normal", "Muk-Delta-Psychic",
-		],
+		otherFormes: ["Muk-Alola"],
+		formeOrder: ["Muk", "Muk-Alola"],
 	},
 	mukalola: {
 		num: 89,
@@ -2534,8 +2530,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mukdelta: {
 		num: 89,
 		name: "Muk-Delta",
-		baseSpecies: "Muk",
-		forme: "Delta",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
 		abilities: {0: "Sap Sipper", H: "Water Absorb"},
@@ -2545,12 +2539,18 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Grimer-Delta",
 		evoLevel: 38,
 		eggGroups: ["Amorphous"],
+		otherFormes: [
+			"Muk-Delta-Water", "Muk-Delta-Grass", "Muk-Delta-Fire", "Muk-Delta-Dark", "Muk-Delta-Normal", "Muk-Delta-Psychic",
+		],
+		formeOrder: [
+			"Muk-Delta", "Muk-Delta-Water", "Muk-Delta-Grass", "Muk-Delta-Fire", "Muk-Delta-Dark", "Muk-Delta-Normal", "Muk-Delta-Psychic",
+		],
 	},
 	mukdeltawater: {
 		num: 89,
 		name: "Muk-Delta-Water",
-		baseSpecies: "Muk",
-		forme: "Delta",
+		baseSpecies: "Muk-Delta",
+		forme: "Grass",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
 		abilities: {0: "Regurgitation"},
@@ -2564,8 +2564,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mukdeltagrass: {
 		num: 89,
 		name: "Muk-Delta-Grass",
-		baseSpecies: "Muk",
-		forme: "Delta",
+		baseSpecies: "Muk-Delta",
+		forme: "Grass",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
 		abilities: {0: "Regurgitation"},
@@ -2579,8 +2579,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mukdeltafire: {
 		num: 89,
 		name: "Muk-Delta-Fire",
-		baseSpecies: "Muk",
-		forme: "Delta",
+		baseSpecies: "Muk-Delta",
+		forme: "Fire",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
 		abilities: {0: "Regurgitation"},
@@ -2594,8 +2594,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mukdeltadark: {
 		num: 89,
 		name: "Muk-Delta-Dark",
-		baseSpecies: "Muk",
-		forme: "Delta",
+		baseSpecies: "Muk-Delta",
+		forme: "Dark",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
 		abilities: {0: "Regurgitation"},
@@ -2609,8 +2609,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mukdeltanormal: {
 		num: 89,
 		name: "Muk-Delta-Normal",
-		baseSpecies: "Muk",
-		forme: "Delta",
+		baseSpecies: "Muk-Delta",
+		forme: "Normal",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
 		abilities: {0: "Regurgitation"},
@@ -2624,8 +2624,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mukdeltapsychic: {
 		num: 89,
 		name: "Muk-Delta-Psychic",
-		baseSpecies: "Muk",
-		forme: "Delta",
+		baseSpecies: "Muk-Delta",
+		forme: "Psychic",
 		types: ["Ground"],
 		baseStats: {hp: 105, atk: 105, def: 75, spa: 65, spd: 100, spe: 50},
 		abilities: {0: "Regurgitation"},
