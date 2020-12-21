@@ -1818,14 +1818,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	sunkerndelta: {
 		tier: "LC",
 	},
-	sunflora: {
+	sunfloram: {
+		isNonstandard: "Past",
+		tier: "PU",
+	},
+	sunfloraf: {
 		isNonstandard: "Past",
 		tier: "PU",
 	},
 	sunfloradelta: {
 		tier: "PU",
 	},
-	sunfloramega: {
+	sunflorammega: {
+		isNonstandard: "Past",
+		tier: "NU",
+	},
+	sunflorafmega: {
 		isNonstandard: "Past",
 		tier: "NU",
 	},
