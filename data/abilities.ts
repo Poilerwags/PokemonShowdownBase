@@ -4799,18 +4799,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	unleafed: {
 		onStart(pokemon) {
-			this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+			pokemon.addVolatile('unleafed');
 		},
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			if (pokemon.activeTurns) {
+		onEnd(pokemon) {
+			delete pokemon.volatiles['unleafed'];
+			this.add('-end', pokemon, 'Unleafed', '[silent]');
+		},
+		condition: {
+			duration: 2,
+			durationCallback(pokemon) {
 				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
 				const boostDur = fainted.length - pokemon.activeTurns;
-				if (boostDur === 0) {
-					this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
-				}
-			}
+				return boostDur;
+			},
+			onStart(pokemon) {
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+			},
+			onEnd(pokemon) {
+				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
+			},
 		},
 		name: "Unleafed",
 		rating: 2.5,
