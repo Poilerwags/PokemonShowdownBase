@@ -468,14 +468,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			duration: 2,
 			onStart(pokemon) {
 				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				if (fainted.length === 0) return;
-				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length - 1;
+				if ((fainted.length - 1) === 0) return;
+				const spaBoost = fainted.length - 1;
 				this.boost({spe: 1, spa: spaBoost}, pokemon);
 			},
 			onEnd(pokemon) {
 				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				if (fainted.length === 0) return;
-				const spaBoost = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted).length - 1;
+				if ((fainted.length - 1) === 0) return;
+				const spaBoost = fainted.length - 1;
 				this.boost({spe: -1, spa: -spaBoost}, pokemon);
 			},
 		},
@@ -4822,12 +4822,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 			onStart(pokemon) {
 				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				if (fainted.length === 0) return;
+				if ((fainted.length - 1) === 0) return;
 				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
 			},
 			onEnd(pokemon) {
 				const fainted = pokemon.side.pokemon.filter(ally => ally === pokemon || ally.fainted);
-				if (fainted.length === 0) return;
+				if ((fainted.length - 1) === 0) return;
 				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
 			},
 		},
