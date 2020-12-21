@@ -2801,7 +2801,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onSetStatus(status, target, source, effect) {
 			const statusImmune = ['par', 'frz', 'brn', 'psn', 'tox'];
-			if (!statusImmune.include(status.id)) return;
+			if (!statusImmune.includes(status.id)) return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Omnitype');
 			}
