@@ -969,6 +969,13 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 			shortDesc: "This Pokemon cannot be infatuated. Gaining this Ability while infatuated cures it.",
 		},
 	},
+	omnitype: {
+		name: "Omnitype",
+		desc: "This Pokemon has the defensive properties of every type.",
+		shortDesc: "This Pokemon has the defensive properties of every type.",
+
+		activate: "  [POKEMON] has become every type!",
+	},
 	overcoat: {
 		name: "Overcoat",
 		shortDesc: "This Pokemon is immune to powder moves and damage from Sandstorm or Hail.",

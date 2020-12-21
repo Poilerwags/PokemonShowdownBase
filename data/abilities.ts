@@ -1956,9 +1956,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					move.ignoreImmunity['Fighting'] = true;
 					move.ignoreImmunity['Normal'] = true;
 				}
-				if (target?.volatiles['magnetrise']) {
+				if (target?.volatiles['magnetrise'] || target?.hasItem('airballoon') || target?.hasAbility('levitate') || target?.hasAbility('omnitype')) {
 					move.ignoreImmunity['Ground'] = false;
-				} else if (!target?.hasAbility('levitate') && !target?.hasItem('airballoon')) {
+				} else {
 					move.ignoreImmunity['Ground'] = true;
 				}
 			}
@@ -2722,6 +2722,100 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 12,
 	},
 	omnitype: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Omnitype');
+			return;
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Rock' || move.type === 'Water') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(2);
+			}
+			if (move.type === 'Ice' || move.type === 'Steel') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(0.5);
+			}
+			if (move.type === 'Dark') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(0.25);
+			}
+			if (move.type === 'Grass' || move.type === 'Bug') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(0.125);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Rock' || move.type === 'Water') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(2);
+			}
+			if (move.type === 'Ice' || move.type === 'Steel' || move.type === 'Fairy') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(0.5);
+			}
+			if (move.type === 'Dark') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(0.25);
+			}
+			if (move.type === 'Grass' || move.type === 'Bug') {
+				this.debug('Omnitype balancing');
+				return this.chainModify(0.125);
+			}
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
+				this.add('-immune', target, '[from] ability: Omnitype');
+				return null;
+			}
+			if (move.category === 'Status' || source.hasAbility('scrappy') || target === source) return;
+			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
+			const immunities = [
+				'Dragon', 'Electric', 'Fighting', 'Ghost', 'Ground', 'Normal', 'Poison', 'Psychic',
+			];
+			if (immunities.includes(move.type)) {
+				this.add('-immune', this.effectData.target, '[from] ability: Ethereal Shroud');
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (move.category === 'Status' || source.hasAbility('scrappy') || target === source) return;
+			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
+			const immunities = [
+				'Dragon', 'Electric', 'Fighting', 'Ghost', 'Ground', 'Normal', 'Poison', 'Psychic',
+			];
+			if (immunities.includes(move.type)) {
+				this.add('-immune', this.effectData.target, '[from] ability: Ethereal Shroud');
+			}
+		},
+		onUpdate(pokemon) {
+			const statusImmune ['par', 'frz', 'brn', 'psn', 'tox'];
+			if (statusImmune.includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Omnitype');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			const statusImmune ['par', 'frz', 'brn', 'psn', 'tox'];
+			if (!statusImmune.include(status.id)) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Omnitype');
+			}
+			return false;
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
+		},
+		onHit(target, source, move) {
+			if (move.name === 'Sheer Cold' || move.name === 'Leech Seed') {
+				this.add('-immune', target, '[from] ability: Omnitype');
+			}
+		},
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = pokemon.maybeTrapped = false;
+		},
 		name: "Omnitype",
 		rating: 3,
 		num: 305,
