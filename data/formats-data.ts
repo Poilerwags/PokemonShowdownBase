@@ -1836,7 +1836,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	sunkerndelta: {
 		tier: "LC",
 	},
-	sunfloram: {
+	sunflora: {
 		isNonstandard: "Past",
 		tier: "PU",
 	},
