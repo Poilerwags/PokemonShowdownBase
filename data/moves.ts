@@ -17209,7 +17209,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const fireHazard = this.dex.getActiveMove('Stealth Rock');
 				fireHazard.type = 'Fire';
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(fireHazard), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				if (pokemon?.hasAbility('omnitype')) {
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 4);
+				} else {
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				}
 			},
 		},
 		secondary: null,
@@ -17236,7 +17240,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwitchIn(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				if (pokemon?.hasAbility('omnitype')) {
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 4);
+				} else {
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				}
 			},
 		},
 		secondary: null,
