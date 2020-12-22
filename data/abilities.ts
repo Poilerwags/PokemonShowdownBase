@@ -3634,6 +3634,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	regurgitation: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category === 'Status') return;
+			if (attacker.species.baseSpecies !== 'Muk-Delta') return;
 			if (move.flags['contact']) {
 				const regurgMove = this.dex.getActiveMove('tackle');
 				regurgMove.category = move.category;
