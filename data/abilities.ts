@@ -1942,30 +1942,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 89,
 	},
 	irrelephant: {
-		onModifyMovePriority: -5,
-		onModifyMove(move, source, target) {
-			if (target?.hasAbility('wonderguard')) return;
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Psychic'] = true;
-				move.ignoreImmunity['Electric'] = true;
-				move.ignoreImmunity['Poison'] = true;
-				move.ignoreImmunity['Ghost'] = true;
-				move.ignoreImmunity['Dragon'] = true;
-				if (target?.hasAbility('etherealshroud') === false) {
-					move.ignoreImmunity['Fighting'] = true;
-					move.ignoreImmunity['Normal'] = true;
-				}
-				if (
-					target?.volatiles['magnetrise'] || target?.hasItem('airballoon') ||
-					target?.hasAbility('levitate') || target?.hasAbility('omnitype')
-				) {
-					move.ignoreImmunity['Ground'] = false;
-				} else {
-					move.ignoreImmunity['Ground'] = true;
-				}
-			}
-		},
+		onNegateImmunity(move) {
+			return false;
+		}
 		name: "Irrelephant",
 		rating: 3,
 		num: 245,
@@ -2729,43 +2708,32 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-ability', pokemon, 'Omnitype');
 			return;
 		},
-		onSourceModifyAtkPriority: 6,
-		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire' || move.type === 'Rock' || move.type === 'Water') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(2);
+		onEffectiveness(typeMod, source, move) {
+			const octupleEffective = ['Ground'];
+			const superEffective = ['Ghost', 'Rock'];
+			const neutral = ['Crystal', 'Dragon', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ice', 'Psychic', 'Water'];
+			const resisted = ['Dark', 'Electric', 'Steel'];
+			const quadResisted = ['Normal', 'Poison'];
+			const sixteenthPower = ['Bug', 'Grass'];
+			if (octupleEffective.includes(move.type)) {
+				return 3;
 			}
-			if (move.type === 'Ice' || move.type === 'Steel') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(0.5);
+			if (superEffective.includes(move.type)) {
+				return 1;
 			}
-			if (move.type === 'Dark') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(0.25);
+			if (neutral.includes(move.type)) {
+				return 0;
 			}
-			if (move.type === 'Grass' || move.type === 'Bug') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(0.125);
+			if (resisted.includes(move.type)) {
+				return -1;
 			}
-		},
-		onSourceModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire' || move.type === 'Rock' || move.type === 'Water') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(2);
+			if (quadResisted.includes(move.type)) {
+				return -2;
 			}
-			if (move.type === 'Ice' || move.type === 'Steel' || move.type === 'Fairy') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(0.5);
+			if (sixteenthPower.includes(move.type)) {
+				return -4;
 			}
-			if (move.type === 'Dark') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(0.25);
-			}
-			if (move.type === 'Grass' || move.type === 'Bug') {
-				this.debug('Omnitype balancing');
-				return this.chainModify(0.125);
-			}
+			return 0;
 		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
