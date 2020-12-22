@@ -2730,7 +2730,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-ability', pokemon, 'Omnitype');
 			return;
 		},
-		onEffectiveness(typeMod, target, type, move) {
+		onEffectiveness(typeMod, target, type, move, source) {
 			if (target?.species.id !== 'giratinaprimal') return;
 			let octupleEffective = ['None'];
 			let superEffective = ['Rock'];
