@@ -2777,7 +2777,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (sixteenthPower.includes(move.type)) {
 					return -4;
 				}
-				return 0;
 			}
 		},
 		onTryHitPriority: 1,
@@ -3677,36 +3676,36 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		onMoveFail(pokemon, target, move) {
+		onMoveFail(target, source, move) {
 			if (move.category === 'Status') return;
-			if (pokemon.species.baseSpecies !== 'Muk-Delta') return;
+			if (source.species.baseSpecies !== 'Muk-Delta') return;
 			if (move.flags['contact']) {
 				const regurgMove = this.dex.getActiveMove('tackle');
 				regurgMove.category = move.category;
 				regurgMove.accuracy = true;
 				regurgMove.name = "Regurgitation";
-				if (pokemon.species.id === 'mukdeltawater') regurgMove.type = 'Water';
-				if (pokemon.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
-				if (pokemon.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
-				if (pokemon.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
-				if (pokemon.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
-				if (pokemon.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
+				if (source.species.id === 'mukdeltawater') regurgMove.type = 'Water';
+				if (source.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
+				if (source.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
+				if (source.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
+				if (source.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
+				if (source.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
 				if (move.name === "Regurgitation") return;
-				this.useMove(regurgMove, pokemon, target);
+				this.useMove(regurgMove, source, target);
 				return null;
 			} else {
 				const regurgMove = this.dex.getActiveMove('fairywind');
 				regurgMove.category = move.category;
 				regurgMove.accuracy = true;
 				regurgMove.name = "Regurgitation";
-				if (pokemon.species.id === 'mukdeltawater') regurgMove.type = 'Water';
-				if (pokemon.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
-				if (pokemon.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
-				if (pokemon.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
-				if (pokemon.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
-				if (pokemon.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
+				if (source.species.id === 'mukdeltawater') regurgMove.type = 'Water';
+				if (source.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
+				if (source.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
+				if (source.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
+				if (source.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
+				if (source.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
 				if (move.name === "Regurgitation") return;
-				this.useMove(regurgMove, pokemon, target);
+				this.useMove(regurgMove, source, target);
 				return null;
 			}
 		},
