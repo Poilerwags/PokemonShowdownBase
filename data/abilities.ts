@@ -2747,7 +2747,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (
 				target.hasItem('ironball') || target.volatiles['smackdown'] ||
-				target.volatiles['ingrain'] || this.field.getPseudoWeather('Gravity') ||
+				target.volatiles['ingrain'] || this.field.getPseudoWeather('Gravity')
 			) {
 				octupleEffective = octupleEffective.append(['Ground']);
 			}
