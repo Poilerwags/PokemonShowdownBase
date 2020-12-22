@@ -2810,11 +2810,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
 		},
-		onHit(target, source, move) {
-			if (move.name === 'Sheer Cold' || move.name === 'Leech Seed') {
-				this.add('-immune', target, '[from] ability: Omnitype');
-			}
-		},
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
 			pokemon.trapped = pokemon.maybeTrapped = false;

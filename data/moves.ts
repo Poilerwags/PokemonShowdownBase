@@ -9807,7 +9807,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		onTryImmunity(target) {
-			return !target.hasType('Grass');
+			return (!target.hasType('Grass') && !target.hasAbility('omnitype'));
 		},
 		secondary: null,
 		target: "normal",
@@ -15577,6 +15577,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onTryImmunity(target) {
+			return !target.hasAbility('omnitype');
+		},
 		secondary: null,
 		ohko: 'Ice',
 		target: "normal",
