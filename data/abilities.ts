@@ -1942,10 +1942,29 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 89,
 	},
 	irrelephant: {
-		condition: {
-			onNegateImmunity(pokemon, type) {
-				return false;
-			},
+		onModifyMovePriority: -5,
+		onModifyMove(move, source, target) {
+			if (target?.hasAbility('wonderguard')) return;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Psychic'] = true;
+				move.ignoreImmunity['Electric'] = true;
+				move.ignoreImmunity['Poison'] = true;
+				move.ignoreImmunity['Ghost'] = true;
+				move.ignoreImmunity['Dragon'] = true;
+				if (target?.hasAbility('etherealshroud') === false) {
+					move.ignoreImmunity['Fighting'] = true;
+					move.ignoreImmunity['Normal'] = true;
+				}
+				if (
+					target?.volatiles['magnetrise'] || target?.hasItem('airballoon') ||
+					target?.hasAbility('levitate') || target?.hasAbility('omnitype')
+				) {
+					move.ignoreImmunity['Ground'] = false;
+				} else {
+					move.ignoreImmunity['Ground'] = true;
+				}
+			}
 		},
 		name: "Irrelephant",
 		rating: 3,
