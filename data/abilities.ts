@@ -2707,10 +2707,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	omnitype: {
 		onStart(pokemon) {
+			if (pokemon.species.id !== 'giratinaprimal') return;
 			this.add('-ability', pokemon, 'Omnitype');
 			return;
 		},
 		onEffectiveness(typeMod, target, type, move) {
+			if (target.species.id !== 'giratinaprimal') return;
 			const octupleEffective = ['Ground'];
 			const superEffective = ['Ghost', 'Rock'];
 			const neutral = ['Crystal', 'Dragon', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ice', 'Psychic', 'Water'];
@@ -2761,13 +2763,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
+			if (target.species.id !== 'giratinaprimal') return;
 			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
 				this.add('-immune', target, '[from] ability: Omnitype');
 				return null;
 			}
 			if (move.category === 'Status' || target === source) return;
 			if (target.hasItem('ringtarget')) return;
-			const immunities = ['Dragon', 'Electric', 'Ghost', 'Poison'];
+			const immunities = ['Dragon', 'Electric', 'Ghost', 'Ground', 'Poison'];
 			if (immunities.includes(move.type)) {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
 			}
@@ -2780,12 +2783,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
 			}
 		},
-		onFoeTryMove(target, source, move) {
-			if (target.hasItem('ringtarget')) {
-				move.ignoreImmunity['Ground'] = true;
-			}
-		},
 		onAllyTryHitSide(target, source, move) {
+			if (target.species.id !== 'giratinaprimal') return;
 			if (move.category === 'Status' || source.hasAbility('scrappy') || target === source) return;
 			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
 			const immunities = [
@@ -2796,6 +2795,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
+			if (pokemon.species.id !== 'giratinaprimal') return;
 			const statusImmune = ['par', 'frz', 'brn', 'psn', 'tox'];
 			if (statusImmune.includes(pokemon.status)) {
 				this.add('-activate', pokemon, 'ability: Omnitype');
@@ -2803,6 +2803,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onSetStatus(status, target, source, effect) {
+			if (target.species.id !== 'giratinaprimal') return;
 			const statusImmune = ['par', 'frz', 'brn', 'psn', 'tox'];
 			if (!statusImmune.includes(status.id)) return;
 			if ((effect as Move)?.status) {
@@ -2811,10 +2812,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return false;
 		},
 		onImmunity(type, pokemon) {
+			if (pokemon.species.id !== 'giratinaprimal') return;
 			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
 		},
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
+			if (pokemon.species.id !== 'giratinaprimal') return;
 			pokemon.trapped = pokemon.maybeTrapped = false;
 		},
 		name: "Omnitype",
