@@ -5765,7 +5765,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target) {
 			if (target.hasType('Grass')) return false;
 			if (!target.addType('Grass')) return false;
-			if (target.hasAbility('etherealshroud')) return false;
+			if (target.hasAbility('etherealshroud') || target.hasAbility('omnitype')) return false;
 			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
 		},
 		secondary: null,
@@ -19114,7 +19114,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target) {
 			if (target.hasType('Ghost')) return false;
 			if (!target.addType('Ghost')) return false;
-			if (target.hasAbility('etherealshroud')) return false;
+			if (target.hasAbility('etherealshroud') || target.hasAbility('omnitype')) return false;
 			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
 
 			if (target.side.active.length === 2 && target.position === 1) {
