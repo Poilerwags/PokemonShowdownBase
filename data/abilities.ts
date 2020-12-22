@@ -1942,9 +1942,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 89,
 	},
 	irrelephant: {
-		onNegateImmunity(move) {
+	condition: {
+		onNegateImmunity(pokemon, type) {
 			return false;
 		},
+	},
 		name: "Irrelephant",
 		rating: 3,
 		num: 245,
