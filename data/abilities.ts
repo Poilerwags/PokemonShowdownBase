@@ -2717,25 +2717,47 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const resisted = ['Dark', 'Electric', 'Steel'];
 			const quadResisted = ['Normal', 'Poison'];
 			const sixteenthPower = ['Bug', 'Grass'];
-			if (octupleEffective.includes(move.type)) {
-				return 3;
-			}
-			if (superEffective.includes(move.type)) {
-				return 1;
-			}
-			if (neutral.includes(move.type)) {
+			if (target.types.length === 2) {
+				if (octupleEffective.includes(move.type)) {
+					return 1.5;
+				}
+				if (superEffective.includes(move.type)) {
+					return 0.5;
+				}
+				if (neutral.includes(move.type)) {
+					return 0;
+				}
+				if (resisted.includes(move.type)) {
+					return -0.5;
+				}
+				if (quadResisted.includes(move.type)) {
+					return -1;
+				}
+				if (sixteenthPower.includes(move.type)) {
+					return -2;
+				}
+				return 0;
+			} else {
+				if (octupleEffective.includes(move.type)) {
+					return 3;
+				}
+				if (superEffective.includes(move.type)) {
+					return 1;
+				}
+				if (neutral.includes(move.type)) {
+					return 0;
+				}
+				if (resisted.includes(move.type)) {
+					return -1;
+				}
+				if (quadResisted.includes(move.type)) {
+					return -2;
+				}
+				if (sixteenthPower.includes(move.type)) {
+					return -4;
+				}
 				return 0;
 			}
-			if (resisted.includes(move.type)) {
-				return -1;
-			}
-			if (quadResisted.includes(move.type)) {
-				return -2;
-			}
-			if (sixteenthPower.includes(move.type)) {
-				return -4;
-			}
-			return 0;
 		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
@@ -2743,13 +2765,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-immune', target, '[from] ability: Omnitype');
 				return null;
 			}
-			if (move.category === 'Status' || source.hasAbility('scrappy') || target === source) return;
-			if (target.volatiles['miracleeye'] || target.volatiles['foresight']) return;
-			const immunities = [
-				'Dragon', 'Electric', 'Fighting', 'Ghost', 'Ground', 'Normal', 'Poison', 'Psychic',
-			];
+			if (move.category === 'Status' || target === source) return;
+			if (target.hasItem('ringtarget')) return;
+			const immunities = ['Dragon', 'Electric', 'Ghost', 'Poison'];
 			if (immunities.includes(move.type)) {
-				this.add('-immune', this.effectData.target, '[from] ability: Ethereal Shroud');
+				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
+				move.ignoreImmunity['Ground'] = true;
+			}
+			if (target.volatiles['miracleeye']) return;
+			if (move.type === 'Psychic') {
+				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
+			}
+			if (target.volatiles['foresight'] || source.hasAbility('scrappy')) return;
+			if (move.type === 'Normal' || move.type === 'Fighting') {
+				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
