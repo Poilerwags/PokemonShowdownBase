@@ -2732,12 +2732,32 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (target?.species.id !== 'giratinaprimal') return;
-			const octupleEffective = ['Ground'];
-			const superEffective = ['Ghost', 'Rock'];
-			const neutral = ['Crystal', 'Dragon', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ice', 'Psychic', 'Water'];
-			const resisted = ['Dark', 'Electric', 'Steel'];
-			const quadResisted = ['Normal', 'Poison'];
+			const octupleEffective = [];
+			const superEffective = ['Rock'];
+			const neutral = ['Crystal', 'Fairy', 'Fire', 'Flying', 'Ice', 'Water'];
+			const resisted = ['Dark', 'Steel'];
+			const quadResisted = [];
 			const sixteenthPower = ['Bug', 'Grass'];
+			if (target.hasItem('ringtarget')) {
+				octupleEffective = octupleEffective.append(['Ground']);
+				superEffective = superEffective.append(['Ghost']);
+				neutral = neutral.append(['Dragon', 'Fighting', 'Psychic']);
+				resisted = resisted.append(['Electric']);
+				quadResisted = quadResisted.append(['Normal', 'Poison']);
+			}
+			if (
+				target.hasItem('ironball') || target.volatiles['smackdown'] ||
+				target.volatiles['ingrain'] || this.field.getPseudoWeather('Gravity') ||
+			) {
+				octupleEffective = octupleEffective.append(['Ground']);
+			}
+			if (target.volatiles['foresight'] || source.hasAbility('scrappy')) {
+				quadResisted = quadResisted.append(['Normal']);
+				neutral = neutral.append(['Fighting']);
+			}
+			if (target.volatiles['miracleeye']) {
+				neutral = neutral.append(['Psychic']);
+			}
 			if (target?.types.length === 2) {
 				if (octupleEffective.includes(move.type)) {
 					return 1.5;
@@ -3673,39 +3693,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (pokemon.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
 				if (move.name === "Regurgitation") return;
 				this.useMove(regurgMove, pokemon, target);
-				return null;
-			}
-		},
-		onMoveFail(target, source, move) {
-			if (move.category === 'Status') return;
-			if (source.species.baseSpecies !== 'Muk-Delta') return;
-			if (move.flags['contact']) {
-				const regurgMove = this.dex.getActiveMove('tackle');
-				regurgMove.category = move.category;
-				regurgMove.accuracy = true;
-				regurgMove.name = "Regurgitation";
-				if (source.species.id === 'mukdeltawater') regurgMove.type = 'Water';
-				if (source.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
-				if (source.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
-				if (source.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
-				if (source.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
-				if (source.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
-				if (move.name === "Regurgitation") return;
-				this.useMove(regurgMove, source, target);
-				return null;
-			} else {
-				const regurgMove = this.dex.getActiveMove('fairywind');
-				regurgMove.category = move.category;
-				regurgMove.accuracy = true;
-				regurgMove.name = "Regurgitation";
-				if (source.species.id === 'mukdeltawater') regurgMove.type = 'Water';
-				if (source.species.id === 'mukdeltagrass') regurgMove.type = 'Grass';
-				if (source.species.id === 'mukdeltafire') regurgMove.type = 'Fire';
-				if (source.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
-				if (source.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
-				if (source.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
-				if (move.name === "Regurgitation") return;
-				this.useMove(regurgMove, source, target);
 				return null;
 			}
 		},
