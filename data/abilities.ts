@@ -3634,7 +3634,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	regurgitation: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category === 'Status') return;
-			const regurgMove = this.dex.getActiveMove('tackle');
+			if (move.flags['contact']) {
+				const regurgMove = this.dex.getActiveMove('tackle');
+			} else {
+				const regurgMove = this.dex.getActiveMove('fairywind');
+			}
 			regurgMove.category = move.category;
 			regurgMove.accuracy = true;
 			regurgMove.name = "Regurgitation";
