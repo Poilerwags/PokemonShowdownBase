@@ -2767,11 +2767,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (move.category === 'Status' || target === source) return;
 			if (target.hasItem('ringtarget')) return;
-			const immunities = ['Dragon', 'Electric', 'Ghost', 'Ground', 'Poison'];
+			const immunities = ['Dragon', 'Electric', 'Ghost', 'Poison'];
 			if (immunities.includes(move.type)) {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
 			}
-			move?.ignoreImmunity['Ground'] = true;
 			if (target.volatiles['miracleeye']) return;
 			if (move.type === 'Psychic') {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
@@ -2779,6 +2778,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (target.volatiles['foresight'] || source.hasAbility('scrappy')) return;
 			if (move.type === 'Normal' || move.type === 'Fighting') {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
+			}
+		},
+		onFoeTryMove(target, source, move) {
+			if (target.hasItem('ringtarget')) {
+				move.ignoreImmunity['Ground'] = true;
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
