@@ -3640,6 +3640,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (pokemon.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
 				if (pokemon.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
 				if (pokemon.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
+				if (move.name = "Regurgitation") return;
 				this.useMove(regurgMove, pokemon, target);
 				return null;
 			} else {
@@ -3653,6 +3654,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (pokemon.species.id === 'mukdeltadark') regurgMove.type = 'Dark';
 				if (pokemon.species.id === 'mukdeltanormal') regurgMove.type = 'Normal';
 				if (pokemon.species.id === 'mukdeltapsychic') regurgMove.type = 'Psychic';
+				if (move.name = "Regurgitation") return;
 				this.useMove(regurgMove, pokemon, target);
 				return null;
 			}
