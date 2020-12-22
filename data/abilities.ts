@@ -1944,7 +1944,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	irrelephant: {
 		onNegateImmunity(move) {
 			return false;
-		}
+		},
 		name: "Irrelephant",
 		rating: 3,
 		num: 245,
