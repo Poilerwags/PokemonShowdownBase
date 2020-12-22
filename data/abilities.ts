@@ -2708,7 +2708,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-ability', pokemon, 'Omnitype');
 			return;
 		},
-		onEffectiveness(typeMod, source, move) {
+		onEffectiveness(typeMod, target, type, move) {
 			const octupleEffective = ['Ground'];
 			const superEffective = ['Ghost', 'Rock'];
 			const neutral = ['Crystal', 'Dragon', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ice', 'Psychic', 'Water'];
