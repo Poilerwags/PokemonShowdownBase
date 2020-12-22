@@ -2732,31 +2732,31 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (target?.species.id !== 'giratinaprimal') return;
-			const octupleEffective = ['None'];
-			const superEffective = ['Rock'];
-			const neutral = ['Crystal', 'Fairy', 'Fire', 'Flying', 'Ice', 'Water'];
-			const resisted = ['Dark', 'Steel'];
-			const quadResisted = ['None'];
-			const sixteenthPower = ['Bug', 'Grass'];
+			let octupleEffective = ['None'];
+			let superEffective = ['Rock'];
+			let neutral = ['Crystal', 'Fairy', 'Fire', 'Flying', 'Ice', 'Water'];
+			let resisted = ['Dark', 'Steel'];
+			let quadResisted = ['None'];
+			let sixteenthPower = ['Bug', 'Grass'];
 			if (target.hasItem('ringtarget')) {
-				octupleEffective = octupleEffective.append(['Ground']);
-				superEffective = superEffective.append(['Ghost']);
-				neutral = neutral.append(['Dragon', 'Fighting', 'Psychic']);
-				resisted = resisted.append(['Electric']);
-				quadResisted = quadResisted.append(['Normal', 'Poison']);
+				octupleEffective = octupleEffective.concat(['Ground']);
+				superEffective = superEffective.concat(['Ghost']);
+				neutral = neutral.concat(['Dragon', 'Fighting', 'Psychic']);
+				resisted = resisted.concat(['Electric']);
+				quadResisted = quadResisted.concat(['Normal', 'Poison']);
 			}
 			if (
 				target.hasItem('ironball') || target.volatiles['smackdown'] ||
 				target.volatiles['ingrain'] || this.field.getPseudoWeather('Gravity')
 			) {
-				octupleEffective = octupleEffective.append(['Ground']);
+				octupleEffective = octupleEffective.concat(['Ground']);
 			}
 			if (target.volatiles['foresight'] || source.hasAbility('scrappy')) {
-				quadResisted = quadResisted.append(['Normal']);
-				neutral = neutral.append(['Fighting']);
+				quadResisted = quadResisted.concat(['Normal']);
+				neutral = neutral.concat(['Fighting']);
 			}
 			if (target.volatiles['miracleeye']) {
-				neutral = neutral.append(['Psychic']);
+				neutral = neutral.concat(['Psychic']);
 			}
 			if (target?.types.length === 2) {
 				if (octupleEffective.includes(move.type)) {
