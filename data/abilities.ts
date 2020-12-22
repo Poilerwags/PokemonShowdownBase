@@ -2732,11 +2732,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (target?.species.id !== 'giratinaprimal') return;
-			const octupleEffective = [];
+			const octupleEffective = ['None'];
 			const superEffective = ['Rock'];
 			const neutral = ['Crystal', 'Fairy', 'Fire', 'Flying', 'Ice', 'Water'];
 			const resisted = ['Dark', 'Steel'];
-			const quadResisted = [];
+			const quadResisted = ['None'];
 			const sixteenthPower = ['Bug', 'Grass'];
 			if (target.hasItem('ringtarget')) {
 				octupleEffective = octupleEffective.append(['Ground']);
