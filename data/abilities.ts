@@ -2813,14 +2813,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-immune', this.effectData.target, '[from] ability: Ethereal Shroud');
 			}
 		},
-		onUpdate(pokemon) {
-			if (pokemon.species.id !== 'giratinaprimal') return;
-			const statusImmune = ['par', 'frz', 'brn', 'psn', 'tox'];
-			if (statusImmune.includes(pokemon.status)) {
-				this.add('-activate', pokemon, 'ability: Omnitype');
-				pokemon.cureStatus();
-			}
-		},
 		onSetStatus(status, target, source, effect) {
 			if (target.species.id !== 'giratinaprimal') return;
 			const statusImmune = ['par', 'frz', 'brn', 'psn', 'tox'];
