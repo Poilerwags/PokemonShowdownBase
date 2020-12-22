@@ -2730,7 +2730,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.add('-ability', pokemon, 'Omnitype');
 			return;
 		},
-		onEffectiveness(typeMod, target, type, move, source) {
+		onEffectiveness(typeMod, target, type, move) {
 			if (target?.species.id !== 'giratinaprimal') return;
 			let octupleEffective = ['None'];
 			let superEffective = ['Rock'];
@@ -2751,7 +2751,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			) {
 				octupleEffective = octupleEffective.concat(['Ground']);
 			}
-			if (target.volatiles['foresight'] || source.hasAbility('scrappy')) {
+			if (target.volatiles['foresight']) {
 				quadResisted = quadResisted.concat(['Normal']);
 				neutral = neutral.concat(['Fighting']);
 			}
