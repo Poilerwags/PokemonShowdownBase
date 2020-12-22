@@ -2717,7 +2717,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const resisted = ['Dark', 'Electric', 'Steel'];
 			const quadResisted = ['Normal', 'Poison'];
 			const sixteenthPower = ['Bug', 'Grass'];
-			if (target.types.length === 2) {
+			if (target?.types.length === 2) {
 				if (octupleEffective.includes(move.type)) {
 					return 1.5;
 				}
@@ -2767,11 +2767,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (move.category === 'Status' || target === source) return;
 			if (target.hasItem('ringtarget')) return;
-			const immunities = ['Dragon', 'Electric', 'Ghost', 'Poison'];
+			const immunities = ['Dragon', 'Electric', 'Ghost', 'Ground', 'Poison'];
 			if (immunities.includes(move.type)) {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
-				move.ignoreImmunity['Ground'] = true;
 			}
+			move?.ignoreImmunity['Ground'] = true;
 			if (target.volatiles['miracleeye']) return;
 			if (move.type === 'Psychic') {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
