@@ -2712,7 +2712,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return;
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (target.species.id !== 'giratinaprimal') return;
+			if (target?.species.id !== 'giratinaprimal') return;
 			const octupleEffective = ['Ground'];
 			const superEffective = ['Ghost', 'Rock'];
 			const neutral = ['Crystal', 'Dragon', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ice', 'Psychic', 'Water'];
