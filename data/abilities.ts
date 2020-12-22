@@ -2737,7 +2737,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			let neutral = ['Crystal', 'Fairy', 'Fire', 'Flying', 'Ice', 'Water'];
 			let resisted = ['Dark', 'Steel'];
 			let quadResisted = ['None'];
-			let sixteenthPower = ['Bug', 'Grass'];
+			const sixteenthPower = ['Bug', 'Grass'];
 			if (target.hasItem('ringtarget')) {
 				octupleEffective = octupleEffective.concat(['Ground']);
 				superEffective = superEffective.concat(['Ghost']);
