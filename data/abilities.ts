@@ -150,7 +150,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.type === 'Normal' || move.type === 'Dragon') return;
 			return this.chainModify(1.5);
 		},
-		onEffectiveness(typeMod, source, type) {
+		onFoeEffectiveness(typeMod, target, type) {
 			return 0;
 		},
 		name: "Ancient Presence",
