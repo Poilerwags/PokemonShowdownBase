@@ -9806,7 +9806,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		onTryImmunity(target, source) {
+		onTryImmunity(target, source, move) {
 			if (move.ignoreAbility && !target.hasType('Grass')) return true;
 			return (!target.hasType('Grass') && !target.hasAbility('omnitype'));
 		},
@@ -15578,7 +15578,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onTryImmunity(target, source) {
+		onTryImmunity(target, source, move) {
 			if (move.ignoreAbility) return true;
 			return !target.hasAbility('omnitype');
 		},
