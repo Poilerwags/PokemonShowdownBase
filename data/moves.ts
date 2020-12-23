@@ -3549,7 +3549,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		onAfterHit(source, target) {
-			if (!source.hasAbility('periodicorbit')) return;
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				move: 'doomdesire',
 				source: source,
