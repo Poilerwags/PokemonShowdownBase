@@ -356,7 +356,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onResidual(target, source) {
-			if (this.duration !== 3) return;
+			if (this.effectData.duration !== 3) return;
 			if (!source?.hasAbility('periodicorbit')) return;
 			const data = this.effectData;
 			// time's up; time to hit! :D
