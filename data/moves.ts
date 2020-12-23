@@ -9806,7 +9806,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		onTryImmunity(target) {
+		onTryImmunity(target, source) {
+			if (source.hasAbility('scrappy') && !target.hasType('Grass')) return true
 			return (!target.hasType('Grass') && !target.hasAbility('omnitype'));
 		},
 		secondary: null,
@@ -15578,6 +15579,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onTryImmunity(target) {
+			if (source.hasAbility('scrappy')) return true
 			return !target.hasAbility('omnitype');
 		},
 		secondary: null,

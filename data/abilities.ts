@@ -2811,14 +2811,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const immunities = ['Dragon', 'Electric', 'Ghost', 'Ground', 'Poison'];
 			if (immunities.includes(move.type)) {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
+				return null;
 			}
 			if (target.volatiles['miracleeye']) return;
 			if (move.type === 'Psychic') {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
+				return null;
 			}
 			if (target.volatiles['foresight'] || source.hasAbility('scrappy')) return;
 			if (move.type === 'Normal' || move.type === 'Fighting') {
 				this.add('-immune', this.effectData.target, '[from] ability: Omnitype');
+				return null;
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
