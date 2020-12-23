@@ -2826,6 +2826,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target.species.id !== 'giratinaprimal') return;
+			if (source.hasAbility('ancientpresence')) return;
 			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
 				this.add('-immune', target, '[from] ability: Omnitype');
 				return null;
