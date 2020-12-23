@@ -349,40 +349,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// this is a slot condition
 		name: 'futuremove',
 		duration: 3,
-		durationCallback(source, effect) {
-			if (source?.hasAbility('periodicorbit')) {
-				return 6;
-			}
-			return 3;
-		},
-		onResidual(target, source) {
-			if (this.effectData.duration !== 3) return;
-			if (!source?.hasAbility('periodicorbit')) return;
-			const data = this.effectData;
-			// time's up; time to hit! :D
-			const move = this.dex.getMove(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(target.fainted ? 'fainted' : 'the user')}.`);
-				return;
-			}
-
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
-
-			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
-				data.moveData.infiltrates = true;
-			}
-			if (data.source.hasAbility('normalize') && this.gen >= 6) {
-				data.moveData.type = 'Normal';
-			}
-			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
-				data.moveData.stab = 2;
-			}
-			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-
-			this.trySpreadMoveHit([target], data.source, hitMove);
-		},
 		onResidualOrder: 3,
 		onEnd(target) {
 			const data = this.effectData;
