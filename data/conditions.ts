@@ -349,11 +349,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// this is a slot condition
 		name: 'futuremove',
 		duration: 3,
-		onResidualOrder: 3,
 		durationCallback(source, effect) {
 			if (source?.hasAbility('periodicorbit')) {
 				return 6;
 			}
+			return 3;
 		},
 		onResidual(target, source) {
 			if (this.effectData.duration !== 3) return;
@@ -383,6 +383,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
+		onResidualOrder: 3,
 		onEnd(target) {
 			const data = this.effectData;
 			// time's up; time to hit! :D
