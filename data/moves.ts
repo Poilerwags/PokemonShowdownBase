@@ -3548,11 +3548,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Doom Desire');
 			return null;
 		},
-		onAfterHit(source, target) {
+		onEnd(pokemon, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				move: 'doomdesire',
-				source: source,
+				source: pokemon,
 				moveData: {
 					id: 'doomdesire',
 					name: "Doom Desire",
@@ -3566,7 +3566,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					type: 'Steel',
 				},
 			});
-			this.add('-start', source, 'Doom Desire');
+			this.add('-start', pokemon, 'Doom Desire');
 			return null;
 		},
 		secondary: null,
