@@ -3548,28 +3548,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Doom Desire');
 			return null;
 		},
-		onEnd(target) {
-			const pokemon = target.side.foe.active[0];
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				move: 'doomdesire',
-				source: pokemon,
-				moveData: {
-					id: 'doomdesire',
-					name: "Doom Desire",
-					accuracy: 100,
-					basePower: 140,
-					category: "Special",
-					priority: 0,
-					flags: {},
-					effectType: 'Move',
-					isFutureMove: true,
-					type: 'Steel',
-				},
-			});
-			this.add('-start', pokemon, 'Doom Desire');
-			return null;
-		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
