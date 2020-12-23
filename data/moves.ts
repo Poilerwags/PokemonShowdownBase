@@ -3548,7 +3548,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-start', source, 'Doom Desire');
 			return null;
 		},
-		onEnd(pokemon, target) {
+		onEnd(target) {
+			const pokemon = target.side.foe.active[0];
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				move: 'doomdesire',
