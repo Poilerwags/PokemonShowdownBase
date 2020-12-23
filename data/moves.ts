@@ -15578,7 +15578,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onTryImmunity(target) {
+		onTryImmunity(target, source) {
 			if (source.hasAbility('scrappy')) return true;
 			return !target.hasAbility('omnitype');
 		},
