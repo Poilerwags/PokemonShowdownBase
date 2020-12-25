@@ -34,14 +34,9 @@ export class ExhaustiveRunner {
 
 	// TODO: Add triple battles once supported by the AI.
 	static readonly FORMATS = [
-		'gen8customgame', 'gen8doublescustomgame',
-		'gen7customgame', 'gen7doublescustomgame',
-		'gen6customgame', 'gen6doublescustomgame',
-		'gen5customgame', 'gen5doublescustomgame',
-		'gen4customgame', 'gen4doublescustomgame',
-		'gen3customgame', 'gen3doublescustomgame',
-		'gen2customgame',
-		'gen1customgame',
+		'gen8customgame',
+		'gen7customgame',
+		'gen6customgame',
 	];
 
 	private readonly format: string;
