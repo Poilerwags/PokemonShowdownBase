@@ -19883,12 +19883,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Tough",
 	},
-	wildfire: {
+	combustion: {
 		num: 752,
 		accuracy: 70,
 		basePower: 0,
 		category: "Status",
-		name: "Wildfire",
+		name: "Combustion",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -19896,7 +19896,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source) {
 			if (target.hasType('Grass')) {
 				for (const pokemon of target.side.pokemon) {
-					const fire = this.dex.getActiveMove('Wildfire');
+					const fire = this.dex.getActiveMove('Combustion');
 					if (this.clampIntRange(pokemon.runEffectiveness(fire), -6, 6) === 1) {
 						pokemon.trySetStatus('brn');
 					}

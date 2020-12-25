@@ -6778,7 +6778,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 1/4 recoil.",
 	},
-	wildfire: {
+	combustion: {
 		name: "Wildfire",
 		desc: "Burns the target.",
 		shortDesc: "Burns the foe(s).",
