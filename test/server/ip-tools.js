@@ -9,6 +9,11 @@ const assert = require('assert').strict;
 const IPTools = require('../../.server-dist/ip-tools').IPTools;
 
 describe("IP tools", () => {
+	it('should resolve 127.0.0.1 to localhost', async () => {
+		const lookup = await IPTools.lookup('127.0.0.1');
+		assert.equal(lookup.host, 'localhost');
+	});
+
 	it('should resolve unknown IPs correctly', async () => {
 		const lookup = await IPTools.lookup('255.255.255.255');
 		assert.equal(lookup.host, '255.255?/unknown');
