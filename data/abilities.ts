@@ -1327,7 +1327,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.foundryBoosted) return this.chainModify([0x14CC, 0x1000]);
+			if (move.foundryBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
 		name: "Foundry",
 		rating: 4,
